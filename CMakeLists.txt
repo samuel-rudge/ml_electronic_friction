@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(SHHEOM LANGUAGES CXX)
+project(ML_ELECTRONIC_FRICTION LANGUAGES CXX)
 
 # -------------------------------
 #          Compiler Flags
