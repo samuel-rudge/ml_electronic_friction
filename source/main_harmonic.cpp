@@ -1,3 +1,4 @@
+#include "utils/math_utils.h"
 #include <iostream> // for std::cout
 #include <vector>
 #include <fstream>
@@ -14,24 +15,6 @@ void write_data(
     {
         file << time_vec[i] << " " << x[i] << " " << p[i] << "\n"; 
     }
-}
-
-std::vector<double> linspace(
-    double min,
-    double max,
-    std::size_t n_steps
-)
-{
-    std::vector<double> output(n_steps);
-    double dt{(max - min) / (n_steps-1)};
-
-    output[0] = min;
-    for (std::size_t i{ 1 }; i < n_steps ; ++i)
-    {
-        output[i] = i*dt;
-    }
-
-    return output;
 }
 
 void one_timestep(
