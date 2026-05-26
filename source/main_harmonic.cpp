@@ -1,9 +1,9 @@
 #include "utils/math_utils.h"
 #include "utils/readwrite_traj.h"
+#include "config/config.h"
 #include <yaml-cpp/yaml.h>
 #include <iostream> // for std::cout
 #include <vector>
-
 
 void one_timestep(
     double& x,
@@ -22,27 +22,24 @@ void one_timestep(
 
 int main()
 {
-    double omega{0.03}; // vibrational frequency
-    double dt{0.1}; // timestep
-    double prop_time{1};
-    double gamma{0.01}; // friction
-    double temp{0.0258}; // temperature in eV
-    double x{0};
-    double p{10};
-    std::size_t n_steps{1000}; 
-    std::vector<double> x_vec(n_steps);
-    std::vector<double> p_vec(n_steps);
+    Config cfg = load_config("config/settings.yaml");
+    double prop_time{(cfg.sim.n_steps + 1)*cfg.sim.dt};
 
+    std::vector<double> x_vec(cfg.sim.n_steps);
+    std::vector<double> p_vec(cfg.sim.n_steps);
+
+    double x = cfg.sim.ic_mean[0];
+    double p = cfg.sim.ic_mean[1];
     x_vec[0] = x;
-    p_vec[p] = p;
-    for (std::size_t itrt{ 1 } ; itrt < n_steps ; ++itrt)
+    p_vec[1] = p;
+    for (std::size_t itrt{ 1 } ; itrt < cfg.sim.n_steps ; ++itrt)
     {
-        one_timestep(x,p,omega,dt,gamma,temp);
+        one_timestep(x,p,cfg.phys.omega,cfg.sim.dt,cfg.phys.gamma,cfg.phys.temp);
         x_vec[itrt] = x;
         p_vec[itrt] = p;
     }
 
-    std::vector<double> time_vec{linspace(0,prop_time,n_steps)};
+    std::vector<double> time_vec{linspace(0,prop_time,cfg.sim.n_steps)};
     write_data(time_vec,x_vec,p_vec);
 
     return 0;

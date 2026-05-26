@@ -10,7 +10,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 add_subdirectory(source)
-# target_compile_options(main_harmonic PRIVATE -O3)
 
 # -------------------------------
 #         Include yaml-cpp
@@ -31,3 +30,5 @@ find_package(yaml-cpp REQUIRED)
 # add_subdirectory(config)
 # add_subdirectory(scripts)
 # add_subdirectory(tests)
+
+target_compile_options(main_harmonic PRIVATE -O3)

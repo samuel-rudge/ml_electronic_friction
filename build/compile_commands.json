@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build",
-  "command": "/usr/bin/g++ -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include -g -std=gnu++17 -o source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o -c /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/main_harmonic.cpp",
+  "command": "/usr/bin/g++ -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/include -g -std=gnu++17 -O3 -o source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o -c /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/main_harmonic.cpp",
   "file": "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/main_harmonic.cpp",
   "output": "source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o"
 },
@@ -16,5 +16,11 @@
   "command": "/usr/bin/g++ -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include -g -std=gnu++17 -o source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.o -c /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/src/readwrite_traj.cpp",
   "file": "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/src/readwrite_traj.cpp",
   "output": "source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.o"
+},
+{
+  "directory": "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build",
+  "command": "/usr/bin/g++ -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/include -g -std=gnu++17 -o source/config/CMakeFiles/config.dir/src/config.cpp.o -c /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/src/config.cpp",
+  "file": "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/src/config.cpp",
+  "output": "source/config/CMakeFiles/config.dir/src/config.cpp.o"
 }
 ]

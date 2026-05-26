@@ -21,15 +21,16 @@ results_subdirs:
 # Coordinates are dimensionless
 # Temperature is in Kelvin
 
-molecule_lead_coupling: 100
-temperature: 300
-electronic_energy: 100
-vib_freq: 30
-elvib_coup: 30
-units_type: "dimensionless"
-potential:
-  type: "harmonic"
-voltage: 0
+phys_param:
+  molecule_lead_coupling: 100
+  temperature: 300
+  electronic_energy: 100
+  vib_freq: 30
+  elvib_coup: 30
+  units_type: "dimensionless"
+  potential:
+    type: "harmonic"
+  voltage: 0
 
 #----------------------------
 # Default plotting parameters 
@@ -59,19 +60,5 @@ simulation:
   init_vib_temp: 300
   dt: 2
   n_timesteps: 5000
-  traj_type: TRANSIENT
-  markovian: False
   n_cores: 20
   base_seed: 42
-  Kval: 1
-  data_storage:
-    store_state: True
-    store_energy: True
-    store_current: True
-    store_stoch_force: True
-  ss_processing:
-    replace_data: True
-    ss_time: 300000
-    n_sample: 1
-    dt_ind: 20
-    percentage_traj_to_keep: 1

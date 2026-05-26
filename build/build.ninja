@@ -76,12 +76,12 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for main_harmonic
 
-build cmake_object_order_depends_target_main_harmonic: phony || cmake_object_order_depends_target_utils
+build cmake_object_order_depends_target_main_harmonic: phony || cmake_object_order_depends_target_config cmake_object_order_depends_target_utils
 
 build source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o: CXX_COMPILER__main_harmonic_unscanned_Debug /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/main_harmonic.cpp || cmake_object_order_depends_target_main_harmonic
   DEP_FILE = source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include
+  FLAGS = -g -std=gnu++17 -O3
+  INCLUDES = -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/include
   OBJECT_DIR = source/CMakeFiles/main_harmonic.dir
   OBJECT_FILE_DIR = source/CMakeFiles/main_harmonic.dir
 
@@ -93,11 +93,11 @@ build source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o: CXX_COMPILER__mai
 #############################################
 # Link the executable source/main_harmonic
 
-build source/main_harmonic: CXX_EXECUTABLE_LINKER__main_harmonic_Debug source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o | source/utils/libutils.a /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0 || source/utils/libutils.a
+build source/main_harmonic: CXX_EXECUTABLE_LINKER__main_harmonic_Debug source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o | source/utils/libutils.a source/config/libconfig.a /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0 || source/config/libconfig.a source/utils/libutils.a
   DEP_FILE = source/CMakeFiles/main_harmonic.dir/link.d
   FLAGS = -g
   LINK_FLAGS = -Wl,--dependency-file=source/CMakeFiles/main_harmonic.dir/link.d
-  LINK_LIBRARIES = source/utils/libutils.a  /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0
+  LINK_LIBRARIES = source/utils/libutils.a  source/config/libconfig.a  /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0
   OBJECT_DIR = source/CMakeFiles/main_harmonic.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -197,7 +197,72 @@ build source/utils/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build source/utils/rebuild_cache: phony source/utils/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target config
+
+
+#############################################
+# Order-only phony target for config
+
+build cmake_object_order_depends_target_config: phony || .
+
+build source/config/CMakeFiles/config.dir/src/config.cpp.o: CXX_COMPILER__config_unscanned_Debug /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/src/config.cpp || cmake_object_order_depends_target_config
+  DEP_FILE = source/config/CMakeFiles/config.dir/src/config.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/include
+  OBJECT_DIR = source/config/CMakeFiles/config.dir
+  OBJECT_FILE_DIR = source/config/CMakeFiles/config.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target config
+
+
+#############################################
+# Link the static library source/config/libconfig.a
+
+build source/config/libconfig.a: CXX_STATIC_LIBRARY_LINKER__config_Debug source/config/CMakeFiles/config.dir/src/config.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = source/config/CMakeFiles/config.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = source/config/libconfig.a
+  TARGET_PDB = config.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build source/config/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/config && /usr/bin/ccmake -S/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction -B/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build source/config/edit_cache: phony source/config/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build source/config/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/config && /usr/bin/cmake --regenerate-during-build -S/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction -B/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build source/config/rebuild_cache: phony source/config/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
+
+build config: phony source/config/libconfig.a
+
+build libconfig.a: phony source/config/libconfig.a
 
 build libutils.a: phony source/utils/libutils.a
 
@@ -220,7 +285,14 @@ build all: phony source/all
 #############################################
 # Folder: /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source
 
-build source/all: phony source/main_harmonic source/utils/all
+build source/all: phony source/main_harmonic source/utils/all source/config/all
+
+# =============================================================================
+
+#############################################
+# Folder: /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/config
+
+build source/config/all: phony source/config/libconfig.a
 
 # =============================================================================
 
@@ -236,14 +308,14 @@ build source/utils/all: phony source/utils/libutils.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/CMakeLists.txt /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/CMakeLists.txt /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config-version.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets.cmake /usr/share/cmake-3.31/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.31/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Compiler/GNU.cmake /usr/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Linker/GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.31/Modules/Platform/Linux.cmake /usr/share/cmake-3.31/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.31.6/CMakeCXXCompiler.cmake CMakeFiles/3.31.6/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/CMakeLists.txt /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/CMakeLists.txt /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/CMakeLists.txt /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config-version.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets.cmake /usr/share/cmake-3.31/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.31/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Compiler/GNU.cmake /usr/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Linker/GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.31/Modules/Platform/Linux.cmake /usr/share/cmake-3.31/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.31.6/CMakeCXXCompiler.cmake CMakeFiles/3.31.6/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/CMakeLists.txt /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/CMakeLists.txt /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config-version.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets.cmake /usr/share/cmake-3.31/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.31/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Compiler/GNU.cmake /usr/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Linker/GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.31/Modules/Platform/Linux.cmake /usr/share/cmake-3.31/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.31.6/CMakeCXXCompiler.cmake CMakeFiles/3.31.6/CMakeSystem.cmake: phony
+build /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/CMakeLists.txt /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/CMakeLists.txt /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/CMakeLists.txt /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config-version.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets.cmake /usr/share/cmake-3.31/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.31/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Compiler/GNU.cmake /usr/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Linker/GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.31/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.31/Modules/Platform/Linux.cmake /usr/share/cmake-3.31/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.31.6/CMakeCXXCompiler.cmake CMakeFiles/3.31.6/CMakeSystem.cmake: phony
 
 
 #############################################
