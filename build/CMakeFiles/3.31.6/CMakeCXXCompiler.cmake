@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "/usr/bin/c++")
+set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "14.2.0")
@@ -87,19 +87,19 @@ endif()
 
 
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/opt/intel/oneapi/dev-utilities/2025.3/include;/opt/intel/oneapi/ccl/2021.17/include;/opt/intel/oneapi/umf/1.0/include;/opt/intel/oneapi/tbb/2022.3/include;/opt/intel/oneapi/mpi/2021.17/include;/opt/intel/oneapi/mkl/2025.3/include;/opt/intel/oneapi/ippcp/2025.3/include;/opt/intel/oneapi/ipp/2022.3/include;/opt/intel/oneapi/dpl/2022.10/include;/opt/intel/oneapi/dpcpp-ct/2025.3/include;/opt/intel/oneapi/dnnl/2025.3/include;/opt/intel/oneapi/dal/2025.10/include;/opt/intel/oneapi/dal/2025.10/include/dal;/usr/include/c++/14;/usr/include/x86_64-linux-gnu/c++/14;/usr/include/c++/14/backward;/usr/lib/gcc/x86_64-linux-gnu/14/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/usr/include/c++/14;/usr/include/x86_64-linux-gnu/c++/14;/usr/include/c++/14/backward;/usr/lib/gcc/x86_64-linux-gnu/14/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;gcc_s;gcc;c;gcc_s;gcc")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/opt/intel/oneapi/tcm/1.4/lib;/opt/intel/oneapi/umf/1.0/lib;/opt/intel/oneapi/tbb/2022.3/lib/intel64/lib;/opt/intel/oneapi/mpi/2021.17/lib;/opt/intel/oneapi/mkl/2025.3/lib;/opt/intel/oneapi/ippcp/2025.3/lib;/opt/intel/oneapi/ipp/2022.3/lib;/opt/intel/oneapi/dnnl/2025.3/lib;/opt/intel/oneapi/dal/2025.10/lib;/opt/intel/oneapi/compiler/2025.3/lib;/opt/intel/oneapi/ccl/2021.17/lib;/usr/lib/gcc/x86_64-linux-gnu/14;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib;/opt/intel/oneapi/tbb/2022.3/lib/intel64/gcc4.8")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/usr/lib/gcc/x86_64-linux-gnu/14;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 set(CMAKE_CXX_COMPILER_CLANG_RESOURCE_DIR "")
 
 set(CMAKE_CXX_COMPILER_IMPORT_STD "")
 ### Imported target for C++23 standard library
-set(CMAKE_CXX23_COMPILER_IMPORT_STD_NOT_FOUND_MESSAGE "Unsupported generator: Unix Makefiles")
+set(CMAKE_CXX23_COMPILER_IMPORT_STD_NOT_FOUND_MESSAGE "Toolchain does not support discovering `import std` support")
 
 
 ### Imported target for C++26 standard library
-set(CMAKE_CXX26_COMPILER_IMPORT_STD_NOT_FOUND_MESSAGE "Unsupported generator: Unix Makefiles")
+set(CMAKE_CXX26_COMPILER_IMPORT_STD_NOT_FOUND_MESSAGE "Toolchain does not support discovering `import std` support")
 
 
 

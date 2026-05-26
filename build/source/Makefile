@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM
+CMAKE_SOURCE_DIR = /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build
+CMAKE_BINARY_DIR = /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build/CMakeFiles /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build/source//CMakeFiles/progress.marks
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build/CMakeFiles 0
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source//CMakeFiles/progress.marks
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/clean
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,18 +103,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/preinstall
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/preinstall
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+source/CMakeFiles/main_harmonic.dir/rule:
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/CMakeFiles/main_harmonic.dir/rule
+.PHONY : source/CMakeFiles/main_harmonic.dir/rule
+
+# Convenience name for target.
+main_harmonic: source/CMakeFiles/main_harmonic.dir/rule
+.PHONY : main_harmonic
+
+# fast build rule for target.
+main_harmonic/fast:
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/CMakeFiles/main_harmonic.dir/build.make source/CMakeFiles/main_harmonic.dir/build
+.PHONY : main_harmonic/fast
+
+main_harmonic.o: main_harmonic.cpp.o
+.PHONY : main_harmonic.o
+
+# target to build an object file
+main_harmonic.cpp.o:
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/CMakeFiles/main_harmonic.dir/build.make source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o
+.PHONY : main_harmonic.cpp.o
+
+main_harmonic.i: main_harmonic.cpp.i
+.PHONY : main_harmonic.i
+
+# target to preprocess a source file
+main_harmonic.cpp.i:
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/CMakeFiles/main_harmonic.dir/build.make source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.i
+.PHONY : main_harmonic.cpp.i
+
+main_harmonic.s: main_harmonic.cpp.s
+.PHONY : main_harmonic.s
+
+# target to generate assembly for a file
+main_harmonic.cpp.s:
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/CMakeFiles/main_harmonic.dir/build.make source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.s
+.PHONY : main_harmonic.cpp.s
 
 # Help Target
 help:
@@ -124,6 +162,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... main_harmonic"
+	@echo "... main_harmonic.o"
+	@echo "... main_harmonic.i"
+	@echo "... main_harmonic.s"
 .PHONY : help
 
 
@@ -135,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

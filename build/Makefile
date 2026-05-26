@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM
+CMAKE_SOURCE_DIR = /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build
+CMAKE_BINARY_DIR = /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build/CMakeFiles /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sr1160/Documents/Postdoc/Projects/Project_SHEOM/Code/SHHEOM/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -116,6 +116,32 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named main_harmonic
+
+# Build rule for target.
+main_harmonic: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main_harmonic
+.PHONY : main_harmonic
+
+# fast build rule for target.
+main_harmonic/fast:
+	$(MAKE) $(MAKESILENT) -f source/CMakeFiles/main_harmonic.dir/build.make source/CMakeFiles/main_harmonic.dir/build
+.PHONY : main_harmonic/fast
+
+#=============================================================================
+# Target rules for targets named utils
+
+# Build rule for target.
+utils: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 utils
+.PHONY : utils
+
+# fast build rule for target.
+utils/fast:
+	$(MAKE) $(MAKESILENT) -f source/utils/CMakeFiles/utils.dir/build.make source/utils/CMakeFiles/utils.dir/build
+.PHONY : utils/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -124,6 +150,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... main_harmonic"
+	@echo "... utils"
 .PHONY : help
 
 

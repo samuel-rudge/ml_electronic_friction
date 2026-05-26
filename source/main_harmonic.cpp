@@ -1,7 +1,9 @@
 #include "utils/math_utils.h"
 #include "utils/readwrite_traj.h"
+#include <yaml-cpp/yaml.h>
 #include <iostream> // for std::cout
 #include <vector>
+
 
 void one_timestep(
     double& x,
