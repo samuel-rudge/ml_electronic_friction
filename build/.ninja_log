@@ -1,11 +1,9 @@
 # ninja log v6
 254	387	1779806118842549645	source/utils/libutils.a	ca61e9b9a26adb65
-3015	4105	1779806984825579257	source/main_harmonic	a490c8691b1d9516
-22	254	1779806118610549637	source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.o	8313676956324460
-15	2951	1779806981726579151	source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o	457bc418ddd4397
-20	153	1779806118608549637	source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o	78913b78ee5db0ad
-5	229	1779812983466868513	build.ninja	769d88abec93f6a7
-16	525	1779812985100868569	source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o	797db0d36eb4769d
-15	699	1779812985096868569	source/config/CMakeFiles/config.dir/src/config.cpp.o	bfd63dece50cacbc
-699	887	1779812985780868592	source/config/libconfig.a	ff6de4ba4ef7c789
 887	1022	1779812985968868599	source/main_harmonic	81bbf9b2c4a8199c
+22	254	1779806118610549637	source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.o	8313676956324460
+15	699	1779812985096868569	source/config/CMakeFiles/config.dir/src/config.cpp.o	bfd63dece50cacbc
+16	525	1779812985100868569	source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o	797db0d36eb4769d
+20	153	1779806118608549637	source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o	78913b78ee5db0ad
+5	229	1779877185535025334	build.ninja	769d88abec93f6a7
+699	887	1779812985780868592	source/config/libconfig.a	ff6de4ba4ef7c789

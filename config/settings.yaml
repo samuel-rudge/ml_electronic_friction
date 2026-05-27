@@ -2,7 +2,7 @@
 
 files_root: "."
 
-data_identifier: "surface_hopping"
+system_identifier: "surface_hopping"
 data_root: "data"
 results_root: "results"
 source_root: "source"
