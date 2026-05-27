@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsh_prop.a CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o
+/usr/bin/ranlib libsh_prop.a

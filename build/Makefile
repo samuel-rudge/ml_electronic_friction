@@ -142,6 +142,45 @@ utils/fast:
 	$(MAKE) $(MAKESILENT) -f source/utils/CMakeFiles/utils.dir/build.make source/utils/CMakeFiles/utils.dir/build
 .PHONY : utils/fast
 
+#=============================================================================
+# Target rules for targets named config
+
+# Build rule for target.
+config: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 config
+.PHONY : config
+
+# fast build rule for target.
+config/fast:
+	$(MAKE) $(MAKESILENT) -f source/config/CMakeFiles/config.dir/build.make source/config/CMakeFiles/config.dir/build
+.PHONY : config/fast
+
+#=============================================================================
+# Target rules for targets named io
+
+# Build rule for target.
+io: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 io
+.PHONY : io
+
+# fast build rule for target.
+io/fast:
+	$(MAKE) $(MAKESILENT) -f source/io/CMakeFiles/io.dir/build.make source/io/CMakeFiles/io.dir/build
+.PHONY : io/fast
+
+#=============================================================================
+# Target rules for targets named sh_prop
+
+# Build rule for target.
+sh_prop: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sh_prop
+.PHONY : sh_prop
+
+# fast build rule for target.
+sh_prop/fast:
+	$(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/build
+.PHONY : sh_prop/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -150,7 +189,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... config"
+	@echo "... io"
 	@echo "... main_harmonic"
+	@echo "... sh_prop"
 	@echo "... utils"
 .PHONY : help
 

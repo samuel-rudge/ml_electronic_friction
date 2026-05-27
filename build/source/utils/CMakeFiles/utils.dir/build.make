@@ -86,33 +86,17 @@ source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/utils.dir/src/math_utils.cpp.s"
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/src/math_utils.cpp -o CMakeFiles/utils.dir/src/math_utils.cpp.s
 
-source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.o: source/utils/CMakeFiles/utils.dir/flags.make
-source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.o: /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/src/readwrite_traj.cpp
-source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.o: source/utils/CMakeFiles/utils.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.o"
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.o -MF CMakeFiles/utils.dir/src/readwrite_traj.cpp.o.d -o CMakeFiles/utils.dir/src/readwrite_traj.cpp.o -c /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/src/readwrite_traj.cpp
-
-source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/utils.dir/src/readwrite_traj.cpp.i"
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/src/readwrite_traj.cpp > CMakeFiles/utils.dir/src/readwrite_traj.cpp.i
-
-source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/utils.dir/src/readwrite_traj.cpp.s"
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/src/readwrite_traj.cpp -o CMakeFiles/utils.dir/src/readwrite_traj.cpp.s
-
 # Object files for target utils
 utils_OBJECTS = \
-"CMakeFiles/utils.dir/src/math_utils.cpp.o" \
-"CMakeFiles/utils.dir/src/readwrite_traj.cpp.o"
+"CMakeFiles/utils.dir/src/math_utils.cpp.o"
 
 # External object files for target utils
 utils_EXTERNAL_OBJECTS =
 
 source/utils/libutils.a: source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o
-source/utils/libutils.a: source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.o
 source/utils/libutils.a: source/utils/CMakeFiles/utils.dir/build.make
 source/utils/libutils.a: source/utils/CMakeFiles/utils.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libutils.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libutils.a"
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/utils && $(CMAKE_COMMAND) -P CMakeFiles/utils.dir/cmake_clean_target.cmake
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/utils && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/utils.dir/link.txt --verbose=$(VERBOSE)
 

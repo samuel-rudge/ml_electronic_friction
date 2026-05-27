@@ -15,6 +15,7 @@ struct SimulationConfig {
 struct PhysicsConfig {
     double omega;
     double elvib_coup;
+    double el_energy;
     double gamma;
     double temp_K;
     double temp;

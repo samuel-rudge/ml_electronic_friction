@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include
 
-CXX_FLAGS = -std=gnu++17
+CXX_FLAGS = -std=gnu++20
 

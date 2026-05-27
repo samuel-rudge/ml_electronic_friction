@@ -27,13 +27,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 5,
+				"line" : 6,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 10,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
@@ -73,6 +73,15 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/io/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "/usr/include/eigen3"
 				}
 			],
 			"language" : "CXX",
@@ -103,6 +112,10 @@
 		{
 			"backtrace" : 2,
 			"id" : "io::@c38754c4f6dd65252431"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "sh_prop::@3331404659d9065168e4"
 		}
 	],
 	"id" : "main_harmonic::@411ffd8adc737496fe19",
@@ -131,6 +144,11 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "source/io/libio.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "source/sh_prop/libsh_prop.a",
 				"role" : "libraries"
 			},
 			{

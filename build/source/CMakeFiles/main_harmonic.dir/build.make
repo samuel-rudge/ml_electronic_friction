@@ -97,6 +97,11 @@ source/main_harmonic: source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o
 source/main_harmonic: source/CMakeFiles/main_harmonic.dir/build.make
 source/main_harmonic: source/CMakeFiles/main_harmonic.dir/compiler_depend.ts
 source/main_harmonic: source/utils/libutils.a
+source/main_harmonic: source/config/libconfig.a
+source/main_harmonic: source/io/libio.a
+source/main_harmonic: source/sh_prop/libsh_prop.a
+source/main_harmonic: /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0
+source/main_harmonic: source/config/libconfig.a
 source/main_harmonic: source/CMakeFiles/main_harmonic.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable main_harmonic"
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main_harmonic.dir/link.txt --verbose=$(VERBOSE)

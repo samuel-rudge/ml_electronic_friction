@@ -154,30 +154,6 @@ src/math_utils.cpp.s:
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/utils/CMakeFiles/utils.dir/build.make source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.s
 .PHONY : src/math_utils.cpp.s
 
-src/readwrite_traj.o: src/readwrite_traj.cpp.o
-.PHONY : src/readwrite_traj.o
-
-# target to build an object file
-src/readwrite_traj.cpp.o:
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/utils/CMakeFiles/utils.dir/build.make source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.o
-.PHONY : src/readwrite_traj.cpp.o
-
-src/readwrite_traj.i: src/readwrite_traj.cpp.i
-.PHONY : src/readwrite_traj.i
-
-# target to preprocess a source file
-src/readwrite_traj.cpp.i:
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/utils/CMakeFiles/utils.dir/build.make source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.i
-.PHONY : src/readwrite_traj.cpp.i
-
-src/readwrite_traj.s: src/readwrite_traj.cpp.s
-.PHONY : src/readwrite_traj.s
-
-# target to generate assembly for a file
-src/readwrite_traj.cpp.s:
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/utils/CMakeFiles/utils.dir/build.make source/utils/CMakeFiles/utils.dir/src/readwrite_traj.cpp.s
-.PHONY : src/readwrite_traj.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -190,9 +166,6 @@ help:
 	@echo "... src/math_utils.o"
 	@echo "... src/math_utils.i"
 	@echo "... src/math_utils.s"
-	@echo "... src/readwrite_traj.o"
-	@echo "... src/readwrite_traj.i"
-	@echo "... src/readwrite_traj.s"
 .PHONY : help
 
 

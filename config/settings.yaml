@@ -24,7 +24,7 @@ results_subdirs:
 phys_param:
   molecule_lead_coupling: 100
   temperature: 300
-  electronic_energy: 100
+  el_energy: 100
   vib_freq: 30
   elvib_coup: 30
   units_type: "dimensionless"

@@ -11,6 +11,7 @@ ml_ef::config::Config ml_ef::config::load_config(const std::string& path)
     cfg.phys.omega = config["phys_param"]["vib_freq"].as<double>(); // vibrational frequency
     cfg.phys.elvib_coup = config["phys_param"]["elvib_coup"].as<double>();
     cfg.phys.gamma = config["phys_param"]["molecule_lead_coupling"].as<double>();
+    cfg.phys.el_energy = config["phys_param"]["el_energy"].as<double>();
     cfg.phys.temp_K = config["phys_param"]["temperature"].as<double>();
     cfg.phys.temp = 8.617e-5 * config["phys_param"]["temperature"].as<double>();
     
