@@ -1,27 +1,36 @@
 #include "io/results_layout.h"
+#include "config/config.h"
 #include <filesystem>
 #include <sstream>
 #include <iomanip>
+#include <format>
 
-ResultsLayout::ResultsLayout(const std::filesystem::path& base_dir)
-    : m_base_dir{base_dir}
+ml_ef::io::ResultsLayout::ResultsLayout(const ml_ef::config::Config& cfg)
 {
-    // results directory
-    std::string results_name = "results"
+    
+    const std::filesystem::path project = cfg.io.project_root;
+    const std::filesystem::path results = cfg.io.results_root;
 
-    m_results_dir = m_base_dir / results_name;
+    const auto gamma_temp = 
+        std::format("gamma_{}meV_temp_{}K",cfg.phys.gamma,cfg.phys.temp_K);
+    const auto omega = 
+        std::format("omega_{}meV",cfg.phys.omega);
+    const auto elvib_coup = 
+        std::format("elvib_coup_{}meV",cfg.phys.elvib_coup);
 
-    // Ensure directory exists on disk
-    std::filesystem::create_directories(m_results_dir)
+    m_results_dir = project / results / gamma_temp / omega / elvib_coup;
+    std::filesystem::create_directories(m_results_dir);
+    m_results_traj_dir = m_results_dir / "trajectories";
+    std::filesystem::create_directories(m_results_traj_dir);
 
 }
 
-const std::filesystem::path& ResultsLayout::base_dir() const
-{
-    return m_base_dir;
-}
-
-const std::filesystem::path& ResultsLayout::results_dir() const
+const std::filesystem::path& ml_ef::io::ResultsLayout::results_dir() const
 {
     return m_results_dir;
+}
+
+const std::filesystem::path& ml_ef::io::ResultsLayout::results_traj_dir() const
+{
+    return m_results_traj_dir;
 }

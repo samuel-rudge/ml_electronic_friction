@@ -4,8 +4,12 @@
 
 #include <vector>
 
-std::vector<double> linspace(    
-    double min,
-    double max,
-    std::size_t n_steps
-);
+namespace ml_ef::utils{
+    
+    std::vector<double> linspace(    
+        double min,
+        double max,
+        std::size_t n_steps
+    );
+
+}

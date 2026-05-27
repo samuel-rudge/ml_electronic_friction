@@ -1,5 +1,6 @@
 add_library(io
-    src/io.cpp
+    src/results_layout.cpp
+    src/traj_io.cpp
 )
 
 target_include_directories(io

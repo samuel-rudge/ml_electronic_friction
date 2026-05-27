@@ -1,7 +1,7 @@
 #include "utils/math_utils.h"
 #include <vector>
 
-std::vector<double> linspace(
+std::vector<double> ml_ef::utils::linspace(
     double min,
     double max,
     std::size_t n_steps

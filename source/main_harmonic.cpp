@@ -1,6 +1,7 @@
 #include "utils/math_utils.h"
-#include "utils/readwrite_traj.h"
 #include "config/config.h"
+#include "io/results_layout.h"
+#include "io/traj_io.h"
 #include <yaml-cpp/yaml.h>
 #include <iostream> // for std::cout
 #include <vector>
@@ -22,7 +23,8 @@ void one_timestep(
 
 int main()
 {
-    Config cfg = load_config("config/settings.yaml");
+    ml_ef::config::Config cfg = ml_ef::config::load_config("config/settings.yaml");
+    ml_ef::io::ResultsLayout results_layout = ml_ef::io::ResultsLayout(cfg);
     double prop_time{(cfg.sim.n_steps + 1)*cfg.sim.dt};
 
     std::vector<double> x_vec(cfg.sim.n_steps);
@@ -39,8 +41,8 @@ int main()
         p_vec[itrt] = p;
     }
 
-    std::vector<double> time_vec{linspace(0,prop_time,cfg.sim.n_steps)};
-    write_data(time_vec,x_vec,p_vec);
+    std::vector<double> time_vec{ml_ef::utils::linspace(0,prop_time,cfg.sim.n_steps)};
+    ml_ef::io::traj_write(time_vec,x_vec,p_vec,results_layout.results_traj_dir());
 
     return 0;
 }

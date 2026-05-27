@@ -162,6 +162,9 @@
 		},
 		{
 			"path" : "source/config/CMakeLists.txt"
+		},
+		{
+			"path" : "source/io/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

@@ -5,15 +5,19 @@
 #include <filesystem>
 #include "config/config.h"
 
-class ResultsLayout 
-{
-public:
-    explicit ResultsLayout(const Config& cfg);
+namespace ml_ef::io{
 
-    std::filesystem::path base_dir() const;
-    std::filesystem::path results_dir() const;
+    class ResultsLayout {
+        public:
+            explicit ResultsLayout(const ml_ef::config::Config& cfg);
 
-private:
-    const std::filesystem::path m_base_dir;
-    const std::filesystem::path m_results_dir;
-};
+            const std::filesystem::path& results_dir() const;
+            const std::filesystem::path& results_traj_dir() const;
+            void m_create_results_dir();
+
+        private:
+            std::filesystem::path m_results_dir;
+            std::filesystem::path m_results_traj_dir;
+    };
+
+}

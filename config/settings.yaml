@@ -1,6 +1,6 @@
 # config/settings.yaml
 
-files_root: "."
+project_root: "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction"
 
 system_identifier: "surface_hopping"
 data_root: "data"
