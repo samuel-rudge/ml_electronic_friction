@@ -9,5 +9,6 @@ target_include_directories(sh_prop
 find_package(Eigen3 REQUIRED NO_MODULE)
 target_link_libraries(sh_prop
     PUBLIC config
+    PUBLIC utils
     PUBLIC Eigen3::Eigen
 )

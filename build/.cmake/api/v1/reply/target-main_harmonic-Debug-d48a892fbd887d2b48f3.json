@@ -158,6 +158,11 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "source/utils/libutils.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "source/config/libconfig.a",
 				"role" : "libraries"
 			}

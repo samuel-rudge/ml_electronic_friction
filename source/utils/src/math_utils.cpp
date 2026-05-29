@@ -1,5 +1,6 @@
 #include "utils/math_utils.h"
 #include <vector>
+#include <Eigen/Dense>
 
 std::vector<double> ml_ef::utils::linspace(
     double min,
@@ -17,4 +18,29 @@ std::vector<double> ml_ef::utils::linspace(
     }
 
     return output;
+}
+
+Eigen::Matrix2d ml_ef::utils::expm2x2(
+    const Eigen::Matrix2d& M
+)
+{
+    double tr = M.trace() / 2.0;
+    double det = M.determinant();
+
+    double delta2 = tr*tr - det;
+    double delta = std::sqrt(std::abs(delta2));
+
+    Eigen::Matrix2d I = Eigen::Matrix2d::Identity();
+
+    if (delta < 1e-12) {
+        // near-degenerate case: Taylor expansion
+        return std::exp(tr) * (I + (M - tr * I));
+    }
+    else {
+        // normal case
+        return std::exp(tr) * 
+                (std::cosh(delta) * I + 
+                (std::sinh(delta) / delta)* (M - tr * I));
+    }
+    
 }

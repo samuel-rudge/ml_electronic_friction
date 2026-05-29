@@ -55,10 +55,10 @@ simulation:
   phys_ic_type: WIGNER
   aux_ic_type: STATIONARY
   n_traj: 20
-  ic_mean: [0,0]
+  ic_mean: [0,0.01]
   ic_var: [0.03,0.03]
   init_vib_temp: 300
-  dt: 2
-  n_timesteps: 5000
+  dt: 0.001
+  n_timesteps: 500
   n_cores: 20
   base_seed: 42
