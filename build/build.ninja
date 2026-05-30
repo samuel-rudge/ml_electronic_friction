@@ -70,39 +70,40 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 # =============================================================================
-# Object build statements for EXECUTABLE target main_harmonic
+# Object build statements for EXECUTABLE target main_sh
 
 
 #############################################
-# Order-only phony target for main_harmonic
+# Order-only phony target for main_sh
 
-build cmake_object_order_depends_target_main_harmonic: phony || cmake_object_order_depends_target_config cmake_object_order_depends_target_io cmake_object_order_depends_target_sh_prop cmake_object_order_depends_target_utils
+build cmake_object_order_depends_target_main_sh: phony || cmake_object_order_depends_target_config cmake_object_order_depends_target_io cmake_object_order_depends_target_sh_prop cmake_object_order_depends_target_utils
 
-build source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o: CXX_COMPILER__main_harmonic_unscanned_Debug /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/main_harmonic.cpp || cmake_object_order_depends_target_main_harmonic
-  DEP_FILE = source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o.d
+build source/CMakeFiles/main_sh.dir/main_sh.cpp.o: CXX_COMPILER__main_sh_unscanned_Debug /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/main_sh.cpp || cmake_object_order_depends_target_main_sh
+  DEP_FILE = source/CMakeFiles/main_sh.dir/main_sh.cpp.o.d
   FLAGS = -g -std=gnu++20 -O3
   INCLUDES = -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/include -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/io/include -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include -isystem /usr/include/eigen3
-  OBJECT_DIR = source/CMakeFiles/main_harmonic.dir
-  OBJECT_FILE_DIR = source/CMakeFiles/main_harmonic.dir
+  OBJECT_DIR = source/CMakeFiles/main_sh.dir
+  OBJECT_FILE_DIR = source/CMakeFiles/main_sh.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target main_harmonic
+# Link build statements for EXECUTABLE target main_sh
 
 
 #############################################
-# Link the executable source/main_harmonic
+# Link the executable source/main_sh
 
-build source/main_harmonic: CXX_EXECUTABLE_LINKER__main_harmonic_Debug source/CMakeFiles/main_harmonic.dir/main_harmonic.cpp.o | source/utils/libutils.a source/config/libconfig.a source/io/libio.a source/sh_prop/libsh_prop.a /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0 source/utils/libutils.a source/config/libconfig.a || source/config/libconfig.a source/io/libio.a source/sh_prop/libsh_prop.a source/utils/libutils.a
-  DEP_FILE = source/CMakeFiles/main_harmonic.dir/link.d
+build source/main_sh: CXX_EXECUTABLE_LINKER__main_sh_Debug source/CMakeFiles/main_sh.dir/main_sh.cpp.o | source/utils/libutils.a source/config/libconfig.a source/io/libio.a source/sh_prop/libsh_prop.a /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0 source/utils/libutils.a source/config/libconfig.a || source/config/libconfig.a source/io/libio.a source/sh_prop/libsh_prop.a source/utils/libutils.a
+  DEP_FILE = source/CMakeFiles/main_sh.dir/link.d
   FLAGS = -g
-  LINK_FLAGS = -Wl,--dependency-file=source/CMakeFiles/main_harmonic.dir/link.d
-  LINK_LIBRARIES = source/utils/libutils.a  source/config/libconfig.a  source/io/libio.a  source/sh_prop/libsh_prop.a  /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0  source/utils/libutils.a  source/config/libconfig.a
-  OBJECT_DIR = source/CMakeFiles/main_harmonic.dir
+  LINK_FLAGS = -Wl,--dependency-file=source/CMakeFiles/main_sh.dir/link.d
+  LINK_LIBRARIES = -Wl,-rpath,/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/utils  source/utils/libutils.a  source/config/libconfig.a  source/io/libio.a  source/sh_prop/libsh_prop.a  /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0  source/utils/libutils.a  source/config/libconfig.a
+  LINK_PATH = -L/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/utils
+  OBJECT_DIR = source/CMakeFiles/main_sh.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = source/main_harmonic
-  TARGET_PDB = main_harmonic.dbg
+  TARGET_FILE = source/main_sh
+  TARGET_PDB = main_sh.dbg
 
 
 #############################################
@@ -149,6 +150,13 @@ build source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o: CXX_COMPILER__util
   OBJECT_DIR = source/utils/CMakeFiles/utils.dir
   OBJECT_FILE_DIR = source/utils/CMakeFiles/utils.dir/src
 
+build source/utils/CMakeFiles/utils.dir/src/typing.cpp.o: CXX_COMPILER__utils_unscanned_Debug /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/src/typing.cpp || cmake_object_order_depends_target_utils
+  DEP_FILE = source/utils/CMakeFiles/utils.dir/src/typing.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include -isystem /usr/include/eigen3
+  OBJECT_DIR = source/utils/CMakeFiles/utils.dir
+  OBJECT_FILE_DIR = source/utils/CMakeFiles/utils.dir/src
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target utils
@@ -157,7 +165,7 @@ build source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o: CXX_COMPILER__util
 #############################################
 # Link the static library source/utils/libutils.a
 
-build source/utils/libutils.a: CXX_STATIC_LIBRARY_LINKER__utils_Debug source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o
+build source/utils/libutils.a: CXX_STATIC_LIBRARY_LINKER__utils_Debug source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o source/utils/CMakeFiles/utils.dir/src/typing.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = source/utils/CMakeFiles/utils.dir
   POST_BUILD = :
@@ -339,6 +347,27 @@ build source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o: CXX_COMPILER__
   OBJECT_DIR = source/sh_prop/CMakeFiles/sh_prop.dir
   OBJECT_FILE_DIR = source/sh_prop/CMakeFiles/sh_prop.dir/src
 
+build source/sh_prop/CMakeFiles/sh_prop.dir/src/sh_utils.cpp.o: CXX_COMPILER__sh_prop_unscanned_Debug /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/sh_utils.cpp || cmake_object_order_depends_target_sh_prop
+  DEP_FILE = source/sh_prop/CMakeFiles/sh_prop.dir/src/sh_utils.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/include -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include -isystem /usr/include/eigen3
+  OBJECT_DIR = source/sh_prop/CMakeFiles/sh_prop.dir
+  OBJECT_FILE_DIR = source/sh_prop/CMakeFiles/sh_prop.dir/src
+
+build source/sh_prop/CMakeFiles/sh_prop.dir/src/cl_forces.cpp.o: CXX_COMPILER__sh_prop_unscanned_Debug /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/cl_forces.cpp || cmake_object_order_depends_target_sh_prop
+  DEP_FILE = source/sh_prop/CMakeFiles/sh_prop.dir/src/cl_forces.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/include -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include -isystem /usr/include/eigen3
+  OBJECT_DIR = source/sh_prop/CMakeFiles/sh_prop.dir
+  OBJECT_FILE_DIR = source/sh_prop/CMakeFiles/sh_prop.dir/src
+
+build source/sh_prop/CMakeFiles/sh_prop.dir/src/init_conds.cpp.o: CXX_COMPILER__sh_prop_unscanned_Debug /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/init_conds.cpp || cmake_object_order_depends_target_sh_prop
+  DEP_FILE = source/sh_prop/CMakeFiles/sh_prop.dir/src/init_conds.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/config/include -I/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include -isystem /usr/include/eigen3
+  OBJECT_DIR = source/sh_prop/CMakeFiles/sh_prop.dir
+  OBJECT_FILE_DIR = source/sh_prop/CMakeFiles/sh_prop.dir/src
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target sh_prop
@@ -347,7 +376,7 @@ build source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o: CXX_COMPILER__
 #############################################
 # Link the static library source/sh_prop/libsh_prop.a
 
-build source/sh_prop/libsh_prop.a: CXX_STATIC_LIBRARY_LINKER__sh_prop_Debug source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o || source/config/libconfig.a source/utils/libutils.a
+build source/sh_prop/libsh_prop.a: CXX_STATIC_LIBRARY_LINKER__sh_prop_Debug source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o source/sh_prop/CMakeFiles/sh_prop.dir/src/sh_utils.cpp.o source/sh_prop/CMakeFiles/sh_prop.dir/src/cl_forces.cpp.o source/sh_prop/CMakeFiles/sh_prop.dir/src/init_conds.cpp.o || source/config/libconfig.a source/utils/libutils.a
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = source/sh_prop/CMakeFiles/sh_prop.dir
   POST_BUILD = :
@@ -394,7 +423,7 @@ build libsh_prop.a: phony source/sh_prop/libsh_prop.a
 
 build libutils.a: phony source/utils/libutils.a
 
-build main_harmonic: phony source/main_harmonic
+build main_sh: phony source/main_sh
 
 build sh_prop: phony source/sh_prop/libsh_prop.a
 
@@ -415,7 +444,7 @@ build all: phony source/all
 #############################################
 # Folder: /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source
 
-build source/all: phony source/main_harmonic source/utils/all source/config/all source/io/all source/sh_prop/all
+build source/all: phony source/main_sh source/utils/all source/config/all source/io/all source/sh_prop/all
 
 # =============================================================================
 

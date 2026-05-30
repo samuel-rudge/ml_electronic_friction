@@ -31,4 +31,4 @@ find_package(yaml-cpp REQUIRED)
 # add_subdirectory(scripts)
 # add_subdirectory(tests)
 
-target_compile_options(main_harmonic PRIVATE -O3)
+target_compile_options(main_sh PRIVATE -O3)

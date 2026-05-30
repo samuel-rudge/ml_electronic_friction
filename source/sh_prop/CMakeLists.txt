@@ -1,5 +1,8 @@
 add_library(sh_prop
     src/quantum_me.cpp
+    src/sh_utils.cpp
+    src/cl_forces.cpp
+    src/init_conds.cpp
 )
 
 target_include_directories(sh_prop

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "utils/typing.h"
 #include <vector>
 #include <cstddef>
 #include <string>
@@ -19,6 +20,7 @@ struct PhysicsConfig {
     double gamma;
     double temp_K;
     double temp;
+    ml_ef::utils::PotentialType pot_type;
 };
 
 struct IOConfig {

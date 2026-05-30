@@ -3,48 +3,63 @@
 #include <vector>
 #include <Eigen/Dense>
 #include <cmath>
+#include <random>
 
 namespace ml_ef::sh{
     
-    double fermi_dirac(
-        double energy,
-        double chem_pot,
-        double temp
-    );
-
-    double el_energy(
-        double energy,
-        double elvib_coup,
-        double x
-    );
-
-    Eigen::Matrix2d liouvillian(
+    void qu_state_propagate(
         const ml_ef::config::Config& cfg,
-        double x
-    );
-
-    Eigen::Vector2d qu_state_propagate(
-        const ml_ef::config::Config& cfg,
-        Eigen::Vector2d qu_state_input,
-        Eigen::Matrix2d L_x,
+        Eigen::Vector2d& qu_state,
+        Eigen::Matrix2d& L_x,
         double dt
     );
 
-    Eigen::Vector2d cl_state_propagate(
+    void cl_state_propagate(
         const ml_ef::config::Config& cfg,
-        Eigen::Vector2d cl_state_input,
-        double dt
+        Eigen::Vector2d& cl_state,
+        const int& act_surf,
+        const double dt
     );
 
-    struct tot_state{
-        Eigen::Vector2d cl_state {};
-        Eigen::Vector2d qu_state {};
-        Eigen::Matrix2d L_x {};
+    class TotalState{
+        public:
+            
+            TotalState(
+                Eigen::Vector2d cl_state,
+                Eigen::Vector2d qu_state,
+                int act_surf
+            ) : 
+                m_cl_state{cl_state},
+                m_qu_state{qu_state},
+                m_act_surf{act_surf}
+            {}
+
+            void update(
+                const Eigen::Vector2d& cl_state,
+                const Eigen::Vector2d& qu_state,
+                const int& act_surf
+                )
+                {
+                    m_cl_state = cl_state;
+                    m_qu_state = qu_state;
+                    m_act_surf = act_surf;
+                }
+
+            const Eigen::Vector2d& cl_state() const;
+            const Eigen::Vector2d& qu_state() const;
+            const int& act_surf() const;
+
+        private:
+            Eigen::Vector2d m_cl_state;
+            Eigen::Vector2d m_qu_state;
+            int m_act_surf;
     };
 
-    ml_ef::sh::tot_state tot_state_propagate(
+    void state_propagate(
         const ml_ef::config::Config& cfg,
-        ml_ef::sh::tot_state tot_state
+        ml_ef::sh::TotalState& tot_state,
+        std::uniform_real_distribution<double>& uniform_dist,
+        std::mt19937& traj_rng
     );
 
 }

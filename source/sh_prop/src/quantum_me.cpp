@@ -1,99 +1,78 @@
 #include "config/config.h"
 #include "utils/math_utils.h"
 #include "sh_prop/quantum_me.h"
+#include "sh_prop/sh_utils.h"
 #include <vector>
 #include <Eigen/Dense>
 #include <cmath>
 #include <iostream>
+#include <random>
 
-double ml_ef::sh::fermi_dirac(
-    double energy,
-    double chem_pot,
-    double temp
-)
-{
-    double fd_value{1/(std::exp((energy - chem_pot)/temp) + 1)};
-
-    return fd_value;
-}
-
-double ml_ef::sh::el_energy(
-    double energy,
-    double elvib_coup,
-    double x
-)
-{
-    double energy_x{energy + elvib_coup * x};
-
-    return energy_x;
-}
-
-Eigen::Matrix2d ml_ef::sh::liouvillian(
+void ml_ef::sh::qu_state_propagate(
     const ml_ef::config::Config& cfg,
-    double x
-)
-{
-    double el_energy_x{ml_ef::sh::el_energy(cfg.phys.el_energy,cfg.phys.elvib_coup,x)};
-    double el_occ{ml_ef::sh::fermi_dirac(el_energy_x,0,cfg.phys.temp)};
-    Eigen::Matrix2d L(2, 2);
-
-    L(0,0) = cfg.phys.gamma * el_occ;
-    L(0,1) = cfg.phys.gamma * (1 - el_occ);
-    L(1,0) = -cfg.phys.gamma * el_occ;
-    L(1,1) = -cfg.phys.gamma * (1 - el_occ);
-
-    return L;
-}
-
-Eigen::Vector2d ml_ef::sh::qu_state_propagate(
-    const ml_ef::config::Config& cfg,
-    Eigen::Vector2d qu_state_input,
-    Eigen::Matrix2d L_x,
+    Eigen::Vector2d& qu_state,
+    Eigen::Matrix2d& L_x,
     double dt
 )
 {
  
     Eigen::Matrix2d L_expdt = ml_ef::utils::expm2x2(L_x * dt);
-    Eigen::Vector2d qu_state_output = L_expdt * qu_state_input;
-
-    return qu_state_output;
+    qu_state = L_expdt * qu_state;
 }
 
-Eigen::Vector2d ml_ef::sh::cl_state_propagate(
+void ml_ef::sh::cl_state_propagate(
     const ml_ef::config::Config& cfg,
-    Eigen::Vector2d cl_state_input,
-    double dt
+    Eigen::Vector2d& cl_state,
+    const int& act_surf,
+    const double dt
 )
 {
   
-    double x = cl_state_input(0);
-    double p = cl_state_input(1);
+    double& x = cl_state(0);
+    double& p = cl_state(1);
+    double cl_force = ml_ef::sh::cl_force(cfg,x,act_surf);
 
     x = x + p * cfg.phys.omega * dt; // update x half timestep
-    p = p - cfg.phys.omega*x*dt; // update p full timestep
-
-    Eigen::Vector2d cl_state_output(x, p);
-
-    return cl_state_output;
+    p = p + cl_force*dt; // update p full timestep
 }
 
-ml_ef::sh::tot_state ml_ef::sh::tot_state_propagate(
+void ml_ef::sh::state_propagate(
     const ml_ef::config::Config& cfg,
-    ml_ef::sh::tot_state tot_state_input
+    ml_ef::sh::TotalState& tot_state,
+    std::uniform_real_distribution<double>& uniform_dist,
+    std::mt19937& traj_rng
 )
 {
   
-    Eigen::Vector2d cl_state_output = tot_state_input.cl_state;
-    Eigen::Vector2d qu_state_output = tot_state_input.qu_state;
+    Eigen::Vector2d cl_state = tot_state.cl_state();
+    Eigen::Vector2d qu_state = tot_state.qu_state();
+    int act_surf = tot_state.act_surf();
 
-    cl_state_output = ml_ef::sh::cl_state_propagate(cfg,cl_state_output,cfg.sim.dt/2);
-    // qu_state_output = ml_ef::sh::qu_state_propagate(
-    //     cfg,qu_state_output,tot_state_input.L_x,cfg.sim.dt/2
-    // );
-    cl_state_output = ml_ef::sh::cl_state_propagate(cfg,cl_state_output,cfg.sim.dt/2);
+    // Half-step for classical vibrational dofs
+    ml_ef::sh::cl_state_propagate(cfg,cl_state,act_surf,cfg.sim.dt/2);
+    // Evaluate quantum propagator at half step
+    Eigen::Matrix2d L_x = ml_ef::sh::liouvillian(cfg,cl_state(0));
+    // Quantum propagation full-step at midway point of classical propagation
+    ml_ef::sh::qu_state_propagate(cfg,qu_state,L_x,cfg.sim.dt);
+    // Hop surfaces decision
+    ml_ef::sh::hop_decision(cfg,cl_state(0),act_surf,uniform_dist,traj_rng);
+    // Final half-step propagation for classical vibrational dofs
+    ml_ef::sh::cl_state_propagate(cfg,cl_state,act_surf,cfg.sim.dt/2);
 
-    Eigen::Matrix2d L_x = ml_ef::sh::liouvillian(cfg,cl_state_output[0]);
-    ml_ef::sh::tot_state tot_state_output{cl_state_output,qu_state_output,L_x};
-    
-    return tot_state_output;
+    tot_state.update(cl_state,qu_state,act_surf);
+}
+
+const Eigen::Vector2d& ml_ef::sh::TotalState::cl_state() const
+{
+    return m_cl_state;
+}
+
+const Eigen::Vector2d& ml_ef::sh::TotalState::qu_state() const
+{
+    return m_qu_state;
+}
+
+const int& ml_ef::sh::TotalState::act_surf() const
+{
+    return m_act_surf;
 }
