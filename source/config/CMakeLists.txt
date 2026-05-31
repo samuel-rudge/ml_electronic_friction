@@ -8,4 +8,5 @@ target_include_directories(config
 
 target_link_directories(config
     PUBLIC utils
+    PUBLIC
 )

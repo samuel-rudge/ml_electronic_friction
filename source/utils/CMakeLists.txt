@@ -1,6 +1,5 @@
 add_library(utils
     src/math_utils.cpp
-    src/typing.cpp
 )
 
 target_include_directories(utils

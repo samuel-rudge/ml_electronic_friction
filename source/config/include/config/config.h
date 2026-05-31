@@ -1,6 +1,7 @@
 #pragma once
 
 #include "utils/typing.h"
+#include <yaml-cpp/yaml.h>
 #include <vector>
 #include <cstddef>
 #include <string>
@@ -21,6 +22,7 @@ struct PhysicsConfig {
     double temp_K;
     double temp;
     ml_ef::utils::PotentialType pot_type;
+    ml_ef::utils::UnitsType units_type;
 };
 
 struct IOConfig {
@@ -38,5 +40,13 @@ struct Config {
 };
 
 Config load_config(const std::string& path);
+
+ml_ef::utils::PotentialType parse_potential_type(
+    const YAML::Node Config& config
+    )
+
+ml_ef::utils::UnitsType parse_units_type(
+    const YAML::Node Config& config
+    )
 
 }

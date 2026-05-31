@@ -16,6 +16,7 @@ ml_ef::config::Config ml_ef::config::load_config(const std::string& path)
     cfg.phys.temp_K = config["phys_param"]["temperature"].as<double>();
     cfg.phys.temp = 8.617e-5 * config["phys_param"]["temperature"].as<double>();
     cfg.phys.pot_type = ml_ef::config::parse_potential_type(config)
+    cfg.phys.units_type = ml_ef::config::parse_units_type(config)
     
     cfg.sim.dt = config["simulation"]["dt"].as<double>();
     cfg.sim.n_steps = config["simulation"]["n_timesteps"].as<std::size_t>();
@@ -43,5 +44,21 @@ ml_ef::utils::PotentialType ml_ef::config::parse_potential_type(
     }
     else {
         throw std::runtime_error("Unknown potential type: " + pot_string);
+    }
+}
+
+ml_ef::utils::PotentialType ml_ef::config::parse_units_type(
+    const YAML::Node config& config
+)
+{
+    pot_string = config["phys_param"]["units"]["type"]
+    if (pot_string == "dimensionless") {
+        return ml_ef::utils::PotentialType::dimensionless;
+    }
+    else if (pot_string == "atomic") {
+        return ml_ef::utils::PotentialType::atomic;
+    }
+    else {
+        throw std::runtime_error("Unknown units type: " + pot_string);
     }
 }

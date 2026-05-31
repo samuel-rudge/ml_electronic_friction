@@ -1,3 +1,7 @@
+// source/utils/typing.h
+
+# pragma once
+
 #include <string>
 
 enum PotentialType {
