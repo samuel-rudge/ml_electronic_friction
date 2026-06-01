@@ -1,6 +1,6 @@
 #include "config/config.h"
 #include <yaml-cpp/yaml.h>
-#include "utils/utils.h"
+#include "utils/typing.h"
 #include <string>
 
 ml_ef::config::Config ml_ef::config::load_config(const std::string& path)
@@ -10,13 +10,14 @@ ml_ef::config::Config ml_ef::config::load_config(const std::string& path)
     ml_ef::config::Config cfg;
     
     cfg.phys.omega = config["phys_param"]["potential"]["vib_freq"].as<double>(); // vibrational frequency
+    cfg.phys.mass = config["phys_param"]["potential"]["mass"].as<double>();
     cfg.phys.elvib_coup = config["phys_param"]["elvib_coup"].as<double>();
     cfg.phys.gamma = config["phys_param"]["molecule_lead_coupling"].as<double>();
     cfg.phys.el_energy = config["phys_param"]["el_energy"].as<double>();
     cfg.phys.temp_K = config["phys_param"]["temperature"].as<double>();
     cfg.phys.temp = 8.617e-5 * config["phys_param"]["temperature"].as<double>();
-    cfg.phys.pot_type = ml_ef::config::parse_potential_type(config)
-    cfg.phys.units_type = ml_ef::config::parse_units_type(config)
+    cfg.phys.pot_type = ml_ef::config::parse_potential_type(config);
+    cfg.phys.units_type = ml_ef::config::parse_units_type(config);
     
     cfg.sim.dt = config["simulation"]["dt"].as<double>();
     cfg.sim.n_steps = config["simulation"]["n_timesteps"].as<std::size_t>();
@@ -32,10 +33,10 @@ ml_ef::config::Config ml_ef::config::load_config(const std::string& path)
 }
 
 ml_ef::utils::PotentialType ml_ef::config::parse_potential_type(
-    const YAML::Node config& config
+    const YAML::Node& config
 )
 {
-    pot_string = config["phys_param"]["potential"]["type"]
+    std::string pot_string = config["phys_param"]["potential"]["type"].as<std::string>();
     if (pot_string == "harmonic") {
         return ml_ef::utils::PotentialType::harmonic;
     }
@@ -47,18 +48,18 @@ ml_ef::utils::PotentialType ml_ef::config::parse_potential_type(
     }
 }
 
-ml_ef::utils::PotentialType ml_ef::config::parse_units_type(
-    const YAML::Node config& config
+ml_ef::utils::UnitsType ml_ef::config::parse_units_type(
+    const YAML::Node& config
 )
 {
-    pot_string = config["phys_param"]["units"]["type"]
-    if (pot_string == "dimensionless") {
-        return ml_ef::utils::PotentialType::dimensionless;
+    std::string units_string = config["phys_param"]["units"].as<std::string>();
+    if (units_string == "dimensionless") {
+        return ml_ef::utils::UnitsType::dimensionless;
     }
-    else if (pot_string == "atomic") {
-        return ml_ef::utils::PotentialType::atomic;
+    else if (units_string == "atomic") {
+        return ml_ef::utils::UnitsType::atomic;
     }
     else {
-        throw std::runtime_error("Unknown units type: " + pot_string);
+        throw std::runtime_error("Unknown units type: " + units_string);
     }
 }

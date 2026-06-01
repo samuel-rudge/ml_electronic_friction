@@ -1,5 +1,6 @@
 #include "config/config.h"
 #include "utils/math_utils.h"
+#include "sh_prop/cl_forces.h"
 #include <vector>
 #include <Eigen/Dense>
 #include <cmath>
@@ -14,11 +15,20 @@ namespace ml_ef::sh{
         double dt
     );
 
-    void cl_state_propagate(
+    void cl_state_propagate_xp(
         const ml_ef::config::Config& cfg,
         Eigen::Vector2d& cl_state,
         const int& act_surf,
-        const double dt
+        const double dt,
+        const ml_ef::sh::ClassicalEoM& cl_forces
+    );
+
+    void cl_state_propagate_px(
+        const ml_ef::config::Config& cfg,
+        Eigen::Vector2d& cl_state,
+        const int& act_surf,
+        const double dt,
+        const ml_ef::sh::ClassicalEoM& cl_forces
     );
 
     class TotalState{
@@ -59,7 +69,8 @@ namespace ml_ef::sh{
         const ml_ef::config::Config& cfg,
         ml_ef::sh::TotalState& tot_state,
         std::uniform_real_distribution<double>& uniform_dist,
-        std::mt19937& traj_rng
+        std::mt19937& traj_rng,
+        ml_ef::sh::ClassicalEoM& cl_forces
     );
 
 }

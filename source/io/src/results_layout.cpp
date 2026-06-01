@@ -12,11 +12,11 @@ ml_ef::io::ResultsLayout::ResultsLayout(const ml_ef::config::Config& cfg)
     const std::filesystem::path results = cfg.io.results_root;
 
     const auto gamma_temp = 
-        std::format("gamma_{}meV_temp_{}K",cfg.phys.gamma,cfg.phys.temp_K);
+        std::format("gamma_{}eV_temp_{}K",cfg.phys.gamma,cfg.phys.temp_K);
     const auto omega = 
-        std::format("omega_{}meV",cfg.phys.omega);
+        std::format("omega_{}eV",cfg.phys.omega);
     const auto elvib_coup = 
-        std::format("elvib_coup_{}meV",cfg.phys.elvib_coup);
+        std::format("elvib_coup_{}eV",cfg.phys.elvib_coup);
 
     m_results_dir = project / results / gamma_temp / omega / elvib_coup;
     std::filesystem::create_directories(m_results_dir);

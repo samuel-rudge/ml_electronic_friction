@@ -22,14 +22,15 @@ results_subdirs:
 # Temperature is in Kelvin
 
 phys_param:
-  molecule_lead_coupling: 100
+  molecule_lead_coupling: 0.1
   temperature: 300
-  el_energy: 100
-  elvib_coup: 30
-  units_type: "dimensionless"
+  el_energy: 0.1
+  elvib_coup: 0.03
+  units: "dimensionless"
   potential:
     type: "harmonic"
-    vib_freq: 30
+    vib_freq: 0.03
+    mass: 1 # Only not equal to 1 if units are not "dimensionless"
   voltage: 0
 
 #----------------------------
@@ -58,7 +59,7 @@ simulation:
   ic_mean: [0,0.01]
   ic_var: [0.03,0.03]
   init_vib_temp: 300
-  dt: 0.001
+  dt: 1
   n_timesteps: 50000
   n_cores: 20
   base_seed: 42

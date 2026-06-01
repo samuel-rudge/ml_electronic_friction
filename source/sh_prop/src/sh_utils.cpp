@@ -29,20 +29,6 @@ double ml_ef::sh::el_energy(
     return energy_x;
 }
 
-double ml_ef::sh::cl_force(
-    const ml_ef::config::Config& cfg,
-    double x,
-    int act_surf
-)
-{
-    double force = -cfg.phys.omega * x;
-    if (act_surf == 1) {
-        force = force  - cfg.phys.elvib_coup;
-    }
-
-    return force;
-}
-
 Eigen::Matrix2d ml_ef::sh::liouvillian(
     const ml_ef::config::Config& cfg,
     double x

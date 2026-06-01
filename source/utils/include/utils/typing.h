@@ -4,12 +4,17 @@
 
 #include <string>
 
-enum PotentialType {
-    harmonic,
-    anharmonic 
-};
+namespace ml_ef::utils{
 
-enum UnitsType {
-    dimensionless,
-    atomic 
-};
+    enum PotentialType {
+        harmonic,
+        anharmonic 
+    };
+
+    enum UnitsType {
+        dimensionless,
+        atomic 
+    };
+
+}
+
