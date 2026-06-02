@@ -4,6 +4,7 @@
 #include "sh_prop/quantum_me.h"
 #include "sh_prop/cl_forces.h"
 #include "sh_prop/sh_utils.h"
+#include "sh_prop/init_conds.h"
 #include <yaml-cpp/yaml.h>
 #include <iostream> // for std::cout
 #include <vector>
@@ -12,9 +13,12 @@
 
 int main()
 {
-    ml_ef::config::Config cfg = ml_ef::config::load_config("config/settings.yaml");
+    ml_ef::config::Config cfg = ml_ef::config::load_config("config/settings_test.yaml");
     ml_ef::io::ResultsLayout results_layout = ml_ef::io::ResultsLayout(cfg);
     ml_ef::sh::ClassicalEoM cl_forces = ml_ef::sh::ClassicalEoM(cfg);
+    ml_ef::sh::InitConds init_conds = ml_ef::sh::InitConds(cfg);
+    Eigen::VectorXi init_conds_el{init_conds.init_conds_el()};
+    std::cout << init_conds_el;
 
     double prop_time{(cfg.sim.n_steps + 1)*cfg.sim.dt};
 

@@ -16,5 +16,10 @@ namespace ml_ef::utils{
         atomic 
     };
 
+    enum InitCondType{
+        fixed,
+        wigner
+    };
+    
 }
 

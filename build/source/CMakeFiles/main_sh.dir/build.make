@@ -101,8 +101,8 @@ source/main_sh: source/config/libconfig.a
 source/main_sh: source/io/libio.a
 source/main_sh: source/sh_prop/libsh_prop.a
 source/main_sh: /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0
-source/main_sh: source/utils/libutils.a
 source/main_sh: source/config/libconfig.a
+source/main_sh: source/utils/libutils.a
 source/main_sh: source/CMakeFiles/main_sh.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable main_sh"
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main_sh.dir/link.txt --verbose=$(VERBOSE)

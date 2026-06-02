@@ -53,11 +53,11 @@ plotting:
 # ---------------------------
 
 simulation:
-  phys_ic_type: WIGNER
-  aux_ic_type: STATIONARY
-  n_traj: 20
+  ic_type: WIGNER
+  n_traj: 100
   ic_mean: [0,0.01]
   ic_var: [0.03,0.03]
+  ic_el_weights: [0.4,0.6]
   init_vib_temp: 300
   dt: 1
   n_timesteps: 50000

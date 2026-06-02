@@ -12,6 +12,9 @@ namespace ml_ef::config{
         double dt;
         std::size_t n_steps;
         std::vector<double> ic_mean;
+        std::vector<double> ic_el_weights;
+        int n_traj;
+        ml_ef::utils::InitCondType ic_type;
     };
 
     struct PhysicsConfig {
@@ -44,10 +47,14 @@ namespace ml_ef::config{
 
     ml_ef::utils::PotentialType parse_potential_type(
         const YAML::Node& Config
-        );
+    );
 
     ml_ef::utils::UnitsType parse_units_type(
         const YAML::Node& Config
-        );
+    );
+
+    ml_ef::utils::InitCondType ml_ef::config::parse_ic_type(
+        const YAML::Node& config
+    );
 
 }

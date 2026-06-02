@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/runTests.dir/link.d CMakeFiles/runTests.dir/test_init_conds.cpp.o -o runTests  -lgtest -lgtest_main -lpthread

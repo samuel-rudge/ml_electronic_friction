@@ -15,3 +15,6 @@
 /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop/CMakeFiles/sh_prop.dir
 /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop/CMakeFiles/edit_cache.dir
 /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop/CMakeFiles/rebuild_cache.dir
+/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/testing/CMakeFiles/runTests.dir
+/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/testing/CMakeFiles/edit_cache.dir
+/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/testing/CMakeFiles/rebuild_cache.dir

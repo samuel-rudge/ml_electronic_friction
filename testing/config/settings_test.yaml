@@ -1,0 +1,65 @@
+# config/settings.yaml
+
+project_root: "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction"
+
+system_identifier: "surface_hopping"
+data_root: "data"
+results_root: "results"
+source_root: "source"
+
+results_subdirs:
+  el_forces: "el_forces"
+  steady_state: "steady_state"
+  transient: "transient"
+
+#--------------------
+# Physical parameters
+# -------------------
+
+# Energy parameters are in eV
+# Voltage is in V
+# Coordinates are dimensionless
+# Temperature is in Kelvin
+
+phys_param:
+  molecule_lead_coupling: 0.1
+  temperature: 300
+  el_energy: 0.1
+  elvib_coup: 0.03
+  units: "dimensionless"
+  potential:
+    type: "harmonic"
+    vib_freq: 0.03
+    mass: 1 # Only not equal to 1 if units are not "dimensionless"
+  voltage: 0
+
+#----------------------------
+# Default plotting parameters 
+# ---------------------------
+
+plotting:
+  linewidth: 2
+  font_family: 'serif'
+  use_tex: true
+  axes_linewidth: 2
+  label_fontsize: 30
+  tick_labelsize: 20
+  tick_length: 6
+  tick_width: 2
+
+#----------------------------
+# Surface hopping simulation 
+# parameters 
+# ---------------------------
+
+simulation:
+  ic_type: WIGNER
+  n_traj: 10000
+  ic_mean: [0,0.01]
+  ic_var: [0.03,0.03]
+  ic_el_weights: [0.4,0.6]
+  init_vib_temp: 300
+  dt: 1
+  n_timesteps: 50000
+  n_cores: 20
+  base_seed: 42

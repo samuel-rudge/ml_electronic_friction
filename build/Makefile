@@ -181,6 +181,19 @@ sh_prop/fast:
 	$(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/build
 .PHONY : sh_prop/fast
 
+#=============================================================================
+# Target rules for targets named runTests
+
+# Build rule for target.
+runTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runTests
+.PHONY : runTests
+
+# fast build rule for target.
+runTests/fast:
+	$(MAKE) $(MAKESILENT) -f testing/CMakeFiles/runTests.dir/build.make testing/CMakeFiles/runTests.dir/build
+.PHONY : runTests/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +205,7 @@ help:
 	@echo "... config"
 	@echo "... io"
 	@echo "... main_sh"
+	@echo "... runTests"
 	@echo "... sh_prop"
 	@echo "... utils"
 .PHONY : help
