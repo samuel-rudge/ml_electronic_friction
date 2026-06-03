@@ -96,6 +96,12 @@ runTests_EXTERNAL_OBJECTS =
 testing/runTests: testing/CMakeFiles/runTests.dir/test_init_conds.cpp.o
 testing/runTests: testing/CMakeFiles/runTests.dir/build.make
 testing/runTests: testing/CMakeFiles/runTests.dir/compiler_depend.ts
+testing/runTests: source/sh_prop/libsh_prop.a
+testing/runTests: source/config/libconfig.a
+testing/runTests: /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0
+testing/runTests: source/io/libio.a
+testing/runTests: source/config/libconfig.a
+testing/runTests: source/utils/libutils.a
 testing/runTests: testing/CMakeFiles/runTests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable runTests"
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/testing && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/runTests.dir/link.txt --verbose=$(VERBOSE)

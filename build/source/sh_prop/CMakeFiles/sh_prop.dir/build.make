@@ -72,19 +72,19 @@ include source/sh_prop/CMakeFiles/sh_prop.dir/flags.make
 source/sh_prop/CMakeFiles/sh_prop.dir/codegen:
 .PHONY : source/sh_prop/CMakeFiles/sh_prop.dir/codegen
 
-source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o: source/sh_prop/CMakeFiles/sh_prop.dir/flags.make
-source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o: /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/quantum_me.cpp
-source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o: source/sh_prop/CMakeFiles/sh_prop.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o"
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o -MF CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o.d -o CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o -c /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/quantum_me.cpp
+source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o: source/sh_prop/CMakeFiles/sh_prop.dir/flags.make
+source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o: /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/traj_prop.cpp
+source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o: source/sh_prop/CMakeFiles/sh_prop.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o"
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o -MF CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o.d -o CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o -c /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/traj_prop.cpp
 
-source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sh_prop.dir/src/quantum_me.cpp.i"
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/quantum_me.cpp > CMakeFiles/sh_prop.dir/src/quantum_me.cpp.i
+source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sh_prop.dir/src/traj_prop.cpp.i"
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/traj_prop.cpp > CMakeFiles/sh_prop.dir/src/traj_prop.cpp.i
 
-source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sh_prop.dir/src/quantum_me.cpp.s"
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/quantum_me.cpp -o CMakeFiles/sh_prop.dir/src/quantum_me.cpp.s
+source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sh_prop.dir/src/traj_prop.cpp.s"
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/traj_prop.cpp -o CMakeFiles/sh_prop.dir/src/traj_prop.cpp.s
 
 source/sh_prop/CMakeFiles/sh_prop.dir/src/sh_utils.cpp.o: source/sh_prop/CMakeFiles/sh_prop.dir/flags.make
 source/sh_prop/CMakeFiles/sh_prop.dir/src/sh_utils.cpp.o: /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/sh_utils.cpp
@@ -128,23 +128,39 @@ source/sh_prop/CMakeFiles/sh_prop.dir/src/init_conds.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sh_prop.dir/src/init_conds.cpp.s"
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/init_conds.cpp -o CMakeFiles/sh_prop.dir/src/init_conds.cpp.s
 
+source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o: source/sh_prop/CMakeFiles/sh_prop.dir/flags.make
+source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o: /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/traj_workers.cpp
+source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o: source/sh_prop/CMakeFiles/sh_prop.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o"
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o -MF CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o.d -o CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o -c /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/traj_workers.cpp
+
+source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sh_prop.dir/src/traj_workers.cpp.i"
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/traj_workers.cpp > CMakeFiles/sh_prop.dir/src/traj_workers.cpp.i
+
+source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sh_prop.dir/src/traj_workers.cpp.s"
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/src/traj_workers.cpp -o CMakeFiles/sh_prop.dir/src/traj_workers.cpp.s
+
 # Object files for target sh_prop
 sh_prop_OBJECTS = \
-"CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o" \
+"CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o" \
 "CMakeFiles/sh_prop.dir/src/sh_utils.cpp.o" \
 "CMakeFiles/sh_prop.dir/src/cl_forces.cpp.o" \
-"CMakeFiles/sh_prop.dir/src/init_conds.cpp.o"
+"CMakeFiles/sh_prop.dir/src/init_conds.cpp.o" \
+"CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o"
 
 # External object files for target sh_prop
 sh_prop_EXTERNAL_OBJECTS =
 
-source/sh_prop/libsh_prop.a: source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o
+source/sh_prop/libsh_prop.a: source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o
 source/sh_prop/libsh_prop.a: source/sh_prop/CMakeFiles/sh_prop.dir/src/sh_utils.cpp.o
 source/sh_prop/libsh_prop.a: source/sh_prop/CMakeFiles/sh_prop.dir/src/cl_forces.cpp.o
 source/sh_prop/libsh_prop.a: source/sh_prop/CMakeFiles/sh_prop.dir/src/init_conds.cpp.o
+source/sh_prop/libsh_prop.a: source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o
 source/sh_prop/libsh_prop.a: source/sh_prop/CMakeFiles/sh_prop.dir/build.make
 source/sh_prop/libsh_prop.a: source/sh_prop/CMakeFiles/sh_prop.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libsh_prop.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libsh_prop.a"
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && $(CMAKE_COMMAND) -P CMakeFiles/sh_prop.dir/cmake_clean_target.cmake
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/source/sh_prop && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sh_prop.dir/link.txt --verbose=$(VERBOSE)
 

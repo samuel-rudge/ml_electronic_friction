@@ -1,6 +1,7 @@
 #pragma once
 
 #include "config/config.h"
+#include "utils/typing.h"
 #include <Eigen/Dense>
 #include <random>
 #include <vector>
@@ -15,19 +16,19 @@ namespace ml_ef::sh{
             );
             
             const Eigen::VectorXi& init_conds_el() const;
-            const Eigen::VectorXi& init_conds_nuc() const;
+            const Eigen::MatrixXd& init_conds_nuc() const;
 
         private:
+            const ml_ef::config::Config& m_cfg;
+            std::mt19937 m_gen;
             // Electronic variables
             int m_n_traj;
-            std::random_device m_rd;
-            std::mt19937 m_gen;
-            std::vector<double> m_ic_el_weights;
             Eigen::VectorXi m_init_conds_el;
-            std::discrete_distribution<int> m_el_dist;
+            void el_ic();
             // Nuclear variables
             Eigen::MatrixXd m_init_conds_nuc;
-
+            void wigner_ic();
+            void fixed_ic();
     };
 
 }

@@ -1,2 +1,2 @@
-/usr/bin/ar qc libsh_prop.a CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o CMakeFiles/sh_prop.dir/src/sh_utils.cpp.o CMakeFiles/sh_prop.dir/src/cl_forces.cpp.o CMakeFiles/sh_prop.dir/src/init_conds.cpp.o
+/usr/bin/ar qc libsh_prop.a CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o CMakeFiles/sh_prop.dir/src/sh_utils.cpp.o CMakeFiles/sh_prop.dir/src/cl_forces.cpp.o CMakeFiles/sh_prop.dir/src/init_conds.cpp.o CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o
 /usr/bin/ranlib libsh_prop.a

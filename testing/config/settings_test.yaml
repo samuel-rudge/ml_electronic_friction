@@ -53,7 +53,9 @@ plotting:
 # ---------------------------
 
 simulation:
-  ic_type: WIGNER
+  ic_rand_rng: True
+  ic_rng: 42
+  ic_type: wigner
   n_traj: 10000
   ic_mean: [0,0.01]
   ic_var: [0.03,0.03]

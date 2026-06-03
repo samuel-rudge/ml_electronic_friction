@@ -7,8 +7,8 @@ source/CMakeFiles/main_sh.dir/main_sh.cpp.o: /home/sr1160/Documents/Postdoc/Proj
   /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/io/include/io/traj_io.h \
   /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include/sh_prop/cl_forces.h \
   /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include/sh_prop/init_conds.h \
-  /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include/sh_prop/quantum_me.h \
   /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include/sh_prop/sh_utils.h \
+  /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include/sh_prop/traj_prop.h \
   /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include/utils/math_utils.h \
   /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include/utils/typing.h \
   /usr/include/alloca.h \
@@ -783,8 +783,6 @@ source/config/libconfig.a:
 
 /usr/include/c++/14/typeinfo:
 
-/usr/include/c++/14/tr1/exp_integral.tcc:
-
 /usr/include/x86_64-linux-gnu/c++/14/bits/messages_members.h:
 
 /usr/include/c++/14/tr1/ell_integral.tcc:
@@ -951,6 +949,12 @@ source/sh_prop/libsh_prop.a:
 
 /usr/include/c++/14/bits/basic_string.h:
 
+/usr/include/eigen3/Eigen/src/Cholesky/LDLT.h:
+
+/usr/include/c++/14/bits/iterator_concepts.h:
+
+/usr/include/c++/14/bits/codecvt.h:
+
 /usr/include/c++/14/bits/istream.tcc:
 
 /usr/include/c++/14/bits/atomic_base.h:
@@ -1015,10 +1019,6 @@ source/sh_prop/libsh_prop.a:
 
 /usr/include/c++/14/pstl/glue_memory_defs.h:
 
-/usr/include/c++/14/bits/iterator_concepts.h:
-
-/usr/include/eigen3/Eigen/src/Cholesky/LDLT.h:
-
 /usr/include/c++/14/bits/functexcept.h:
 
 /usr/include/c++/14/set:
@@ -1030,26 +1030,6 @@ source/sh_prop/libsh_prop.a:
 /usr/include/c++/14/bits/ostream_insert.h:
 
 /usr/include/c++/14/bits/stl_pair.h:
-
-/usr/include/c++/14/bits/locale_facets_nonio.h:
-
-/usr/include/eigen3/Eigen/Geometry:
-
-/usr/include/eigen3/Eigen/src/Core/MathFunctionsImpl.h:
-
-/usr/include/c++/14/bits/std_mutex.h:
-
-/usr/include/c++/14/bits/exception.h:
-
-/usr/include/c++/14/utility:
-
-/usr/include/c++/14/bits/basic_ios.h:
-
-/usr/include/c++/14/bits/stl_raw_storage_iter.h:
-
-/usr/include/eigen3/Eigen/LU:
-
-/usr/include/eigen3/Eigen/src/Core/Transpositions.h:
 
 /usr/lib/linux/uapi/x86/asm/unistd_64.h:
 
@@ -1077,11 +1057,29 @@ source/sh_prop/libsh_prop.a:
 
 /usr/include/c++/14/bits/cxxabi_init_exception.h:
 
-/usr/include/c++/14/bits/codecvt.h:
+/usr/include/c++/14/tr1/exp_integral.tcc:
 
-/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include/sh_prop/quantum_me.h:
+/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/sh_prop/include/sh_prop/traj_prop.h:
 
-/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+/usr/include/c++/14/bits/locale_facets_nonio.h:
+
+/usr/include/eigen3/Eigen/Geometry:
+
+/usr/include/eigen3/Eigen/src/Core/MathFunctionsImpl.h:
+
+/usr/include/c++/14/bits/std_mutex.h:
+
+/usr/include/c++/14/bits/exception.h:
+
+/usr/include/c++/14/utility:
+
+/usr/include/c++/14/bits/basic_ios.h:
+
+/usr/include/c++/14/bits/stl_raw_storage_iter.h:
+
+/usr/include/eigen3/Eigen/LU:
+
+/usr/include/eigen3/Eigen/src/Core/Transpositions.h:
 
 /usr/include/c++/14/vector:
 
@@ -1543,12 +1541,6 @@ source/sh_prop/libsh_prop.a:
 
 /usr/include/eigen3/Eigen/src/Core/util/Memory.h:
 
-/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include/utils/typing.h:
-
-/usr/include/x86_64-linux-gnu/c++/14/bits/cpu_defines.h:
-
-/usr/include/eigen3/Eigen/src/Eigenvalues/ComplexSchur.h:
-
 /usr/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h:
 
 /usr/include/eigen3/Eigen/src/Core/util/ReshapedHelper.h:
@@ -1780,6 +1772,14 @@ source/sh_prop/libsh_prop.a:
 /usr/include/eigen3/Eigen/src/Core/arch/Default/ConjHelper.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/include/utils/typing.h:
+
+/usr/include/eigen3/Eigen/src/Eigenvalues/ComplexSchur.h:
+
+/usr/include/x86_64-linux-gnu/c++/14/bits/cpu_defines.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 

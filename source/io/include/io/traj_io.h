@@ -11,7 +11,8 @@ namespace ml_ef::io{
     void traj_write(
         const std::vector<double>& time_vec,
         const Eigen::MatrixXd& cl_state_traj,
-        const std::filesystem::path& traj_dir
+        const std::filesystem::path& traj_dir,
+        int traj_ind
     );    
 
 }

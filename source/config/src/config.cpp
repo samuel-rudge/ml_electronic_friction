@@ -2,7 +2,7 @@
 #include <yaml-cpp/yaml.h>
 #include "utils/typing.h"
 #include <string>
-// #include <iostream>
+#include <iostream>
 
 ml_ef::config::Config ml_ef::config::load_config(const std::string& path)
 {
@@ -26,6 +26,8 @@ ml_ef::config::Config ml_ef::config::load_config(const std::string& path)
     cfg.sim.ic_el_weights = config["simulation"]["ic_el_weights"].as<std::vector<double>>();
     cfg.sim.n_traj = config["simulation"]["n_traj"].as<int>();
     cfg.sim.ic_type = ml_ef::config::parse_ic_type(config);
+    cfg.sim.ic_rand_rng = config["simulation"]["ic_rand_rng"].as<bool>(false);
+    cfg.sim.ic_rng = config["simulation"]["ic_rng"].as<int>();
 
     cfg.io.project_root = config["project_root"].as<std::string>();
     cfg.io.system_identifier = config["system_identifier"].as<std::string>();
@@ -73,11 +75,11 @@ ml_ef::utils::InitCondType ml_ef::config::parse_ic_type(
     const YAML::Node& config
 )
 {
-    std::string ic_string = config["simulation"]["ic_phys"].as<std::string>();
+    std::string ic_string = config["simulation"]["ic_type"].as<std::string>();
     if (ic_string == "wigner") {
         return ml_ef::utils::InitCondType::wigner;
     }
-    else if (ic_string == "atomic") {
+    else if (ic_string == "fixed") {
         return ml_ef::utils::InitCondType::fixed;
     }
     else {

@@ -15,6 +15,8 @@ namespace ml_ef::config{
         std::vector<double> ic_el_weights;
         int n_traj;
         ml_ef::utils::InitCondType ic_type;
+        bool ic_rand_rng;
+        int ic_rng;
     };
 
     struct PhysicsConfig {
@@ -53,7 +55,7 @@ namespace ml_ef::config{
         const YAML::Node& Config
     );
 
-    ml_ef::utils::InitCondType ml_ef::config::parse_ic_type(
+    ml_ef::utils::InitCondType parse_ic_type(
         const YAML::Node& config
     );
 

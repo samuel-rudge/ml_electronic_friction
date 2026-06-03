@@ -1,3 +1,5 @@
 add_test([=[INITCONDS.ELECTRONIC]=]  /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/testing/runTests [==[--gtest_filter=INITCONDS.ELECTRONIC]==] --gtest_also_run_disabled_tests)
 set_tests_properties([=[INITCONDS.ELECTRONIC]=]  PROPERTIES WORKING_DIRECTORY /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/testing SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
-set(  runTests_TESTS INITCONDS.ELECTRONIC)
+add_test([=[INITCONDS.NUCLEAR]=]  /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/testing/runTests [==[--gtest_filter=INITCONDS.NUCLEAR]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[INITCONDS.NUCLEAR]=]  PROPERTIES WORKING_DIRECTORY /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/testing SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  runTests_TESTS INITCONDS.ELECTRONIC INITCONDS.NUCLEAR)

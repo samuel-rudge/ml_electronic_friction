@@ -1,1 +1,1 @@
-/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/main_sh.dir/link.d CMakeFiles/main_sh.dir/main_sh.cpp.o -o main_sh  utils/libutils.a config/libconfig.a io/libio.a sh_prop/libsh_prop.a /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0 config/libconfig.a utils/libutils.a
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/main_sh.dir/link.d CMakeFiles/main_sh.dir/main_sh.cpp.o -o main_sh  utils/libutils.a config/libconfig.a io/libio.a sh_prop/libsh_prop.a /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0 io/libio.a config/libconfig.a utils/libutils.a

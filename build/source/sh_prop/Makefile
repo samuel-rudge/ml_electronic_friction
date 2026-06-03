@@ -178,30 +178,6 @@ src/init_conds.cpp.s:
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/src/init_conds.cpp.s
 .PHONY : src/init_conds.cpp.s
 
-src/quantum_me.o: src/quantum_me.cpp.o
-.PHONY : src/quantum_me.o
-
-# target to build an object file
-src/quantum_me.cpp.o:
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.o
-.PHONY : src/quantum_me.cpp.o
-
-src/quantum_me.i: src/quantum_me.cpp.i
-.PHONY : src/quantum_me.i
-
-# target to preprocess a source file
-src/quantum_me.cpp.i:
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.i
-.PHONY : src/quantum_me.cpp.i
-
-src/quantum_me.s: src/quantum_me.cpp.s
-.PHONY : src/quantum_me.s
-
-# target to generate assembly for a file
-src/quantum_me.cpp.s:
-	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/src/quantum_me.cpp.s
-.PHONY : src/quantum_me.cpp.s
-
 src/sh_utils.o: src/sh_utils.cpp.o
 .PHONY : src/sh_utils.o
 
@@ -226,6 +202,54 @@ src/sh_utils.cpp.s:
 	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/src/sh_utils.cpp.s
 .PHONY : src/sh_utils.cpp.s
 
+src/traj_prop.o: src/traj_prop.cpp.o
+.PHONY : src/traj_prop.o
+
+# target to build an object file
+src/traj_prop.cpp.o:
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o
+.PHONY : src/traj_prop.cpp.o
+
+src/traj_prop.i: src/traj_prop.cpp.i
+.PHONY : src/traj_prop.i
+
+# target to preprocess a source file
+src/traj_prop.cpp.i:
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.i
+.PHONY : src/traj_prop.cpp.i
+
+src/traj_prop.s: src/traj_prop.cpp.s
+.PHONY : src/traj_prop.s
+
+# target to generate assembly for a file
+src/traj_prop.cpp.s:
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.s
+.PHONY : src/traj_prop.cpp.s
+
+src/traj_workers.o: src/traj_workers.cpp.o
+.PHONY : src/traj_workers.o
+
+# target to build an object file
+src/traj_workers.cpp.o:
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o
+.PHONY : src/traj_workers.cpp.o
+
+src/traj_workers.i: src/traj_workers.cpp.i
+.PHONY : src/traj_workers.i
+
+# target to preprocess a source file
+src/traj_workers.cpp.i:
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.i
+.PHONY : src/traj_workers.cpp.i
+
+src/traj_workers.s: src/traj_workers.cpp.s
+.PHONY : src/traj_workers.s
+
+# target to generate assembly for a file
+src/traj_workers.cpp.s:
+	cd /home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build && $(MAKE) $(MAKESILENT) -f source/sh_prop/CMakeFiles/sh_prop.dir/build.make source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.s
+.PHONY : src/traj_workers.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -241,12 +265,15 @@ help:
 	@echo "... src/init_conds.o"
 	@echo "... src/init_conds.i"
 	@echo "... src/init_conds.s"
-	@echo "... src/quantum_me.o"
-	@echo "... src/quantum_me.i"
-	@echo "... src/quantum_me.s"
 	@echo "... src/sh_utils.o"
 	@echo "... src/sh_utils.i"
 	@echo "... src/sh_utils.s"
+	@echo "... src/traj_prop.o"
+	@echo "... src/traj_prop.i"
+	@echo "... src/traj_prop.s"
+	@echo "... src/traj_workers.o"
+	@echo "... src/traj_workers.i"
+	@echo "... src/traj_workers.s"
 .PHONY : help
 
 

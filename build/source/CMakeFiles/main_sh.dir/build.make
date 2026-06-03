@@ -101,6 +101,7 @@ source/main_sh: source/config/libconfig.a
 source/main_sh: source/io/libio.a
 source/main_sh: source/sh_prop/libsh_prop.a
 source/main_sh: /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8.0
+source/main_sh: source/io/libio.a
 source/main_sh: source/config/libconfig.a
 source/main_sh: source/utils/libutils.a
 source/main_sh: source/CMakeFiles/main_sh.dir/link.txt
