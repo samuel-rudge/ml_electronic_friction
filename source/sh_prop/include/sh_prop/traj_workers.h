@@ -15,7 +15,8 @@ namespace ml_ef::sh{
     };
 
     ml_ef::sh::HopDist hop_dist_traj(
-        const ml_ef::config::Config& cfg
+        const ml_ef::config::Config& cfg,
+        const int& itr_traj
     );
 
     class TotalState{

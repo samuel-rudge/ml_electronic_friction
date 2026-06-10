@@ -17,6 +17,8 @@ namespace ml_ef::config{
         ml_ef::utils::InitCondType ic_type;
         bool ic_rand_rng;
         int ic_rng;
+        int n_threads;
+        int traj_seed;
     };
 
     struct PhysicsConfig {

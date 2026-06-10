@@ -1,7 +1,7 @@
+#include "postproc/postproc_utils.h"
 #include "config/config.h"
 #include "io/traj_io.h"
 #include "io/results_layout.h"
-#include "postproc/postproc_utils.h"
 #include <Eigen/Dense>
 
 ml_ef::postproc::Observables::Observables(
@@ -10,12 +10,13 @@ ml_ef::postproc::Observables::Observables(
     m_time_vec{init_traj_data.col(0)},
     m_tot_x{init_traj_data.col(1)},
     m_tot_p{init_traj_data.col(2)},
-    m_tot_xsq{init_traj_data.col(1).array().square()},
-    m_tot_psq{init_traj_data.col(2).array().square()},
-    m_mean_x{Eigen::VectorXd::Zero(init_traj_data.col(0).size())},
-    m_mean_p{Eigen::VectorXd::Zero(init_traj_data.col(0).size())},
-    m_mean_xsq{Eigen::VectorXd::Zero(init_traj_data.col(0).size())},
-    m_mean_psq{Eigen::VectorXd::Zero(init_traj_data.col(0).size())}
+    m_tot_xsq{init_traj_data.col(1).array().square().matrix()},
+    m_tot_psq{init_traj_data.col(2).array().square().matrix()}
+    // ,
+    // m_mean_x{Eigen::VectorXd::Zero(init_traj_data.col(0).size())},
+    // m_mean_p{Eigen::VectorXd::Zero(init_traj_data.col(0).size())},
+    // m_mean_xsq{Eigen::VectorXd::Zero(init_traj_data.col(0).size())},
+    // m_mean_psq{Eigen::VectorXd::Zero(init_traj_data.col(0).size())}
 {}
 
 void ml_ef::postproc::Observables::update_traj_obs(
@@ -33,10 +34,10 @@ void ml_ef::postproc::Observables::mean_traj_obs(
     const int& n_traj
 )
 {
-    Eigen::VectorXd m_mean_x = m_tot_x / n_traj;
-    Eigen::VectorXd m_mean_p = m_tot_p / n_traj;
-    Eigen::VectorXd m_mean_xsq = m_tot_xsq / n_traj;
-    Eigen::VectorXd m_mean_psq = m_tot_psq / n_traj;
+    m_mean_x = m_tot_x / n_traj;
+    m_mean_p = m_tot_p / n_traj;
+    m_mean_xsq = m_tot_xsq / n_traj;
+    m_mean_psq = m_tot_psq / n_traj;
 
 }
 

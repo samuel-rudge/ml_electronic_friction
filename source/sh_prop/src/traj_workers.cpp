@@ -11,6 +11,7 @@
 #include <vector>
 #include <Eigen/Dense>
 #include <random>
+#include <omp.h>
 
 void ml_ef::sh::traj_prop(const ml_ef::config::Config& cfg)
 {
@@ -20,12 +21,16 @@ void ml_ef::sh::traj_prop(const ml_ef::config::Config& cfg)
 
     double prop_time{(cfg.sim.n_steps + 1)*cfg.sim.dt};
     std::vector<double> time_vec{ml_ef::utils::linspace(0,prop_time,cfg.sim.n_steps)};
-    ml_ef::sh::HopDist hop_dist{ml_ef::sh::hop_dist_traj(cfg)};
 
+    omp_set_dynamic(0);
+    omp_set_num_threads(cfg.sim.n_threads);
     #pragma omp parallel for shared (time_vec,cfg,results_layout,cl_forces,init_conds)
     for (int itr_traj = 0; itr_traj < cfg.sim.n_traj; ++itr_traj) {
+        ml_ef::sh::HopDist hop_dist{ml_ef::sh::hop_dist_traj(cfg,itr_traj)};
         Eigen::MatrixXd cl_state_traj(cfg.sim.n_steps , 2);
-        ml_ef::sh::TotalState tot_state{ init_cond_traj(itr_traj,init_conds,cfg) };
+        ml_ef::sh::TotalState tot_state{ 
+            ml_ef::sh::init_cond_traj(itr_traj,init_conds,cfg) 
+        };
         cl_state_traj.row(0) = tot_state.cl_state();
         // 
         for (std::size_t itrt{ 1 } ; itrt < cfg.sim.n_steps ; ++itrt)
@@ -41,13 +46,15 @@ void ml_ef::sh::traj_prop(const ml_ef::config::Config& cfg)
 }
 
 ml_ef::sh::HopDist ml_ef::sh::hop_dist_traj(
-    const ml_ef::config::Config& cfg
+    const ml_ef::config::Config& cfg,
+    const int& itr_traj
 )
 {
-    std::random_device rd;  // Will be used to obtain a seed for the random number engine
-    std::mt19937 traj_rng(rd());
-    std::uniform_real_distribution<double> uniform_dist(0.0,1.0);
-    ml_ef::sh::HopDist hop_dist{traj_rng,uniform_dist};
+
+    ml_ef::sh::HopDist hop_dist{
+        std::mt19937(cfg.sim.traj_seed + itr_traj),
+        std::uniform_real_distribution<double>(0.0,1.0)
+    };
 
     return hop_dist;
 }

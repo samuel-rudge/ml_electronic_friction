@@ -1,6 +1,7 @@
 # config/settings.yaml
 
-project_root: "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction"
+project_root: "/home/samuel/Documents/Postdoc/Projects/Project_ML_friction_kernels/Code/ml_electronic_friction"
+# project_root: "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction"
 
 system_identifier: "surface_hopping"
 data_root: "data"
@@ -65,3 +66,5 @@ simulation:
   n_timesteps: 50000
   n_cores: 20
   base_seed: 42
+  n_threads: 4
+  traj_seed: 1709

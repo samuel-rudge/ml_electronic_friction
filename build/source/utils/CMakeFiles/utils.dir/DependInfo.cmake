@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/utils/src/math_utils.cpp" "source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o" "gcc" "source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o.d"
+  "/home/samuel/Documents/Postdoc/Projects/Project_ML_friction_kernels/Code/ml_electronic_friction/source/utils/src/math_utils.cpp" "source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o" "gcc" "source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

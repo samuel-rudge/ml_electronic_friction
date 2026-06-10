@@ -28,6 +28,8 @@ ml_ef::config::Config ml_ef::config::load_config(const std::string& path)
     cfg.sim.ic_type = ml_ef::config::parse_ic_type(config);
     cfg.sim.ic_rand_rng = config["simulation"]["ic_rand_rng"].as<bool>(false);
     cfg.sim.ic_rng = config["simulation"]["ic_rng"].as<int>();
+    cfg.sim.n_threads = config["simulation"]["n_threads"].as<int>();
+    cfg.sim.traj_seed = config["simulation"]["traj_seed"].as<int>();
 
     cfg.io.project_root = config["project_root"].as<std::string>();
     cfg.io.system_identifier = config["system_identifier"].as<std::string>();
