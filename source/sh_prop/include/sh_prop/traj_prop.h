@@ -1,6 +1,7 @@
 #include "config/config.h"
 #include "utils/math_utils.h"
 #include "sh_prop/cl_forces.h"
+#include "sh_prop/traj_workers.h"
 #include <vector>
 #include <Eigen/Dense>
 #include <cmath>
@@ -31,45 +32,10 @@ namespace ml_ef::sh{
         const ml_ef::sh::ClassicalEoM& cl_forces
     );
 
-    class TotalState{
-        public:
-            
-            TotalState(
-                Eigen::Vector2d cl_state,
-                Eigen::Vector2d qu_state,
-                int act_surf
-            ) : 
-                m_cl_state{cl_state},
-                m_qu_state{qu_state},
-                m_act_surf{act_surf}
-            {}
-
-            void update(
-                const Eigen::Vector2d& cl_state,
-                const Eigen::Vector2d& qu_state,
-                const int& act_surf
-                )
-                {
-                    m_cl_state = cl_state;
-                    m_qu_state = qu_state;
-                    m_act_surf = act_surf;
-                }
-
-            const Eigen::Vector2d& cl_state() const;
-            const Eigen::Vector2d& qu_state() const;
-            const int& act_surf() const;
-
-        private:
-            Eigen::Vector2d m_cl_state;
-            Eigen::Vector2d m_qu_state;
-            int m_act_surf;
-    };
-
     void state_propagate(
         const ml_ef::config::Config& cfg,
         ml_ef::sh::TotalState& tot_state,
-        std::uniform_real_distribution<double>& uniform_dist,
-        std::mt19937& traj_rng,
+        ml_ef::sh::HopDist& hop_dist,
         ml_ef::sh::ClassicalEoM& cl_forces
     );
 

@@ -1,6 +1,7 @@
 #include "config/config.h"
 #include "utils/math_utils.h"
 #include "sh_prop/sh_utils.h"
+#include "sh_prop/traj_workers.h"
 #include <vector>
 #include <Eigen/Dense>
 #include <cmath>
@@ -70,12 +71,11 @@ void ml_ef::sh::hop_decision(
     const ml_ef::config::Config& cfg,
     const double& x,
     int& act_surf,
-    std::uniform_real_distribution<double>& uniform_dist,
-    std::mt19937& traj_rng
+    ml_ef::sh::HopDist& hop_dist
 )
 {
     double P_hop{ml_ef::sh::transition_rate(cfg,x,act_surf) * cfg.sim.dt};
-    double xi{uniform_dist(traj_rng)};
+    double xi{hop_dist.uniform_dist(hop_dist.traj_rng)};
     if (xi < P_hop) {
         act_surf = 1 - act_surf;
         // n_jump = n_jump + 1;

@@ -1,5 +1,6 @@
 #include "config/config.h"
 #include "utils/math_utils.h"
+#include "sh_prop/traj_workers.h"
 #include <vector>
 #include <Eigen/Dense>
 #include <cmath>
@@ -28,8 +29,7 @@ namespace ml_ef::sh{
         const ml_ef::config::Config& cfg,
         const double& x,
         int& act_surf,
-        std::uniform_real_distribution<double>& uniform_dist,
-        std::mt19937& traj_rng
+        ml_ef::sh::HopDist& hop_dist
     );
 
     double cl_force(

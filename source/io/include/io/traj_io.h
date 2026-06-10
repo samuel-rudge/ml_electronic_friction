@@ -15,4 +15,23 @@ namespace ml_ef::io{
         int traj_ind
     );    
 
+    Eigen::MatrixXd traj_read_and_matrixise(
+        const std::filesystem::path& traj_dir,
+        const int& traj_ind
+    );
+
+    struct ReadFileData {
+        std::size_t rows;
+        std::size_t cols;
+        std::vector<double> values;
+    };
+    
+    ml_ef::io::ReadFileData traj_read(
+        const std::filesystem::path& traj_filename
+    );
+    
+    Eigen::MatrixXd matrix_from_file_data(
+        const ml_ef::io::ReadFileData& file_data
+    );
+
 }

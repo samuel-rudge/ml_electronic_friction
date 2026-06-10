@@ -22,6 +22,10 @@ ml_ef::io::ResultsLayout::ResultsLayout(const ml_ef::config::Config& cfg)
     std::filesystem::create_directories(m_results_dir);
     m_results_traj_dir = m_results_dir / "trajectories";
     std::filesystem::create_directories(m_results_traj_dir);
+    m_results_ensemble_av_dir = m_results_dir / "ensemble_av";
+    std::filesystem::create_directories(m_results_ensemble_av_dir);
+    m_results_plots_dir = m_results_dir / "ensemble_av";
+    std::filesystem::create_directories(m_results_plots_dir);
 
 }
 
@@ -31,6 +35,16 @@ const std::filesystem::path& ml_ef::io::ResultsLayout::results_dir() const
 }
 
 const std::filesystem::path& ml_ef::io::ResultsLayout::results_traj_dir() const
+{
+    return m_results_traj_dir;
+}
+
+const std::filesystem::path& ml_ef::io::ResultsLayout::results_ensemble_av_dir() const
+{
+    return m_results_ensemble_av_dir;
+}
+
+const std::filesystem::path& ml_ef::io::ResultsLayout::results_plots_dir() const
 {
     return m_results_traj_dir;
 }

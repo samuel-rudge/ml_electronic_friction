@@ -2,6 +2,7 @@ add_subdirectory(utils)
 add_subdirectory(config)
 add_subdirectory(io)
 add_subdirectory(sh_prop)
+add_subdirectory(postproc)
 
 add_executable(main_sh
     main_sh.cpp
@@ -27,4 +28,5 @@ target_link_libraries(main_sh PRIVATE
     sh_prop
     config
     yaml-cpp::yaml-cpp
+    postproc
 )

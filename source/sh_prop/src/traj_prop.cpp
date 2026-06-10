@@ -2,12 +2,12 @@
 #include "utils/math_utils.h"
 #include "sh_prop/traj_prop.h"
 #include "sh_prop/sh_utils.h"
+#include "sh_prop/traj_workers.h"
 #include <vector>
 #include <Eigen/Dense>
 #include <cmath>
 #include <iostream>
-#include <random>
-#include <iostream>
+
 
 void ml_ef::sh::qu_state_propagate(
     const ml_ef::config::Config& cfg,
@@ -33,8 +33,9 @@ void ml_ef::sh::cl_state_propagate_xp(
     double& x = cl_state(0);
     double& p = cl_state(1);
 
-    p = p + (cl_forces.p_dot_nuc(x) + cl_forces.p_dot_el(x,act_surf))*dt; // update p 
     x = x + cl_forces.x_dot(p) * dt; // update x 
+    p = p + (cl_forces.p_dot_nuc(x) + cl_forces.p_dot_el(x,act_surf))*dt; // update p 
+    
 }
 
 void ml_ef::sh::cl_state_propagate_px(
@@ -49,16 +50,15 @@ void ml_ef::sh::cl_state_propagate_px(
     double& x = cl_state(0);
     double& p = cl_state(1);
 
-    x = x + cl_forces.x_dot(p) * dt; // update x 
     p = p + (cl_forces.p_dot_nuc(x) + cl_forces.p_dot_el(x,act_surf))*dt; // update p 
+    x = x + cl_forces.x_dot(p) * dt; // update x 
     
 }
 
 void ml_ef::sh::state_propagate(
     const ml_ef::config::Config& cfg,
     ml_ef::sh::TotalState& tot_state,
-    std::uniform_real_distribution<double>& uniform_dist,
-    std::mt19937& traj_rng,
+    ml_ef::sh::HopDist& hop_dist,
     ml_ef::sh::ClassicalEoM& cl_forces
 )
 {
@@ -74,7 +74,7 @@ void ml_ef::sh::state_propagate(
     // Quantum propagation full-step at midway point of classical propagation
     ml_ef::sh::qu_state_propagate(cfg,qu_state,L_x,cfg.sim.dt);
     // Hop surfaces decision
-    ml_ef::sh::hop_decision(cfg,cl_state(0),act_surf,uniform_dist,traj_rng);
+    ml_ef::sh::hop_decision(cfg,cl_state(0),act_surf,hop_dist);
     // Final half-step propagation for classical vibrational dofs
     ml_ef::sh::cl_state_propagate_xp(cfg,cl_state,act_surf,cfg.sim.dt/2,cl_forces);
 

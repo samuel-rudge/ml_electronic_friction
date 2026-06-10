@@ -20,6 +20,7 @@ void ml_ef::sh::traj_prop(const ml_ef::config::Config& cfg)
 
     double prop_time{(cfg.sim.n_steps + 1)*cfg.sim.dt};
     std::vector<double> time_vec{ml_ef::utils::linspace(0,prop_time,cfg.sim.n_steps)};
+    ml_ef::sh::HopDist hop_dist{ml_ef::sh::hop_dist_traj(cfg)};
 
     #pragma omp parallel for shared (time_vec,cfg,results_layout,cl_forces,init_conds)
     for (int itr_traj = 0; itr_traj < cfg.sim.n_traj; ++itr_traj) {
@@ -29,7 +30,7 @@ void ml_ef::sh::traj_prop(const ml_ef::config::Config& cfg)
         // 
         for (std::size_t itrt{ 1 } ; itrt < cfg.sim.n_steps ; ++itrt)
         {
-            ml_ef::sh::state_propagate( cfg, tot_state , uniform_dist, traj_rng, cl_forces );
+            ml_ef::sh::state_propagate( cfg, tot_state , hop_dist, cl_forces );
             cl_state_traj.row(itrt) = tot_state.cl_state();
         }
 
@@ -65,5 +66,5 @@ ml_ef::sh::TotalState ml_ef::sh::init_cond_traj(
 
     ml_ef::sh::TotalState tot_state{ cl_state, qu_state, act_surf };
 
-    return TotalState;
+    return tot_state;
 }
