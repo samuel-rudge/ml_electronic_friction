@@ -5,6 +5,7 @@
 #include "io/results_layout.h"
 #include "io/traj_io.h"
 #include "io/obs_io.h"
+#include "utils/typing.h"
 #include <filesystem>
 #include <iostream>
 
@@ -13,27 +14,52 @@ void ml_ef::postproc::postproc(
 )
 {
     ml_ef::io::ResultsLayout results_layout{ml_ef::io::ResultsLayout(cfg)};
-    ml_ef::postproc::Observables obs{ml_ef::postproc::process_all_traj(
-        results_layout.results_traj_dir(),
-        cfg.sim.n_traj
+    ml_ef::postproc::Obs obs{ml_ef::postproc::process_all_traj(
+        cfg,
+        results_layout.results_traj_dir()
     )};
 
     ml_ef::io::obs_write(obs,results_layout.results_ensemble_av_dir());
 
 }
 
-ml_ef::postproc::Observables ml_ef::postproc::process_all_traj(
-    const std::filesystem::path& traj_path,
-    const int& n_traj
+ml_ef::postproc::Obs ml_ef::postproc::process_all_traj(
+    const ml_ef::config::Config& cfg,
+    const std::filesystem::path& traj_path
 )
 {
-    Eigen::MatrixXd traj_data{ml_ef::io::traj_read_and_matrixise(traj_path,0)};
-    ml_ef::postproc::Observables obs{ml_ef::postproc::Observables(traj_data)};
-    for (int itrtraj = 1; itrtraj < n_traj; ++itrtraj) {
-        Eigen::MatrixXd traj_data{ml_ef::io::traj_read_and_matrixise(traj_path,itrtraj)};
-        obs.update_traj_obs(traj_data);
+    Eigen::MatrixXd cl_traj_data{
+        ml_ef::io::traj_read_and_matrixise(
+            traj_path,0,ml_ef::utils::DataType::cl
+        )        
+    };
+    Eigen::MatrixXd qu_traj_data{
+        ml_ef::io::traj_read_and_matrixise(
+            traj_path,0,ml_ef::utils::DataType::qu
+        )
+    };
+    ml_ef::postproc::ClObservables cl_obs{
+        ml_ef::postproc::ClObservables(cl_traj_data,cfg)
+    };
+    ml_ef::postproc::QuObservables qu_obs{
+        ml_ef::postproc::QuObservables(qu_traj_data,cl_traj_data,cfg)
+    };
+    for (int itrtraj = 1; itrtraj < cfg.sim.n_traj; ++itrtraj) {
+        Eigen::MatrixXd cl_traj_data{
+            ml_ef::io::traj_read_and_matrixise(
+                traj_path,itrtraj,ml_ef::utils::DataType::cl)
+            };
+        Eigen::MatrixXd qu_traj_data{
+            ml_ef::io::traj_read_and_matrixise(
+                traj_path,itrtraj,ml_ef::utils::DataType::qu)
+            };
+        cl_obs.update_traj_obs(cl_traj_data);
+        qu_obs.update_traj_obs(qu_traj_data,cl_traj_data);
     }
-    obs.mean_traj_obs(n_traj);
+    cl_obs.mean_traj_obs(cfg.sim.n_traj);
+    qu_obs.mean_traj_obs(cfg.sim.n_traj);
+
+    ml_ef::postproc::Obs obs{cl_obs,qu_obs};
 
     return obs;
 }

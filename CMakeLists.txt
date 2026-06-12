@@ -10,13 +10,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 add_subdirectory(source)
+add_subdirectory(scripts)
 add_subdirectory(testing)
 
 # -------------------------------
 #         Include yaml-cpp
 # -------------------------------
 
-find_package(yaml-cpp REQUIRED)
+# find_package(yaml-cpp REQUIRED)
 # set(YAML_CPP_DIR "$ENV{HOME}/local/yaml-cpp")
 # include_directories(${YAML_CPP_DIR}/include)
 # link_directories(${YAML_CPP_DIR}/lib)
@@ -32,4 +33,4 @@ find_package(yaml-cpp REQUIRED)
 # add_subdirectory(scripts)
 # add_subdirectory(tests)
 
-target_compile_options(main_sh PRIVATE -O3)
+# target_compile_options(main PRIVATE -O3)

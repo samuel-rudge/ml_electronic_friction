@@ -17,4 +17,9 @@ namespace ml_ef::utils{
         const Eigen::Matrix2d& M
     );
 
+    double expect_value(
+        const Eigen::MatrixXd& op,
+        const Eigen::VectorXd& pops
+    );
+
 }

@@ -20,6 +20,11 @@ namespace ml_ef::utils{
         fixed,
         wigner
     };
+
+    enum DataType{
+        cl,
+        qu
+    };
     
 }
 

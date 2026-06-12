@@ -12,4 +12,5 @@ target_link_libraries(postproc
     PUBLIC config
     PUBLIC Eigen3::Eigen
     PUBLIC io
+    PUBLIC utils
 )

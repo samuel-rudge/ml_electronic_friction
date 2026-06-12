@@ -39,9 +39,9 @@ Eigen::Matrix2d ml_ef::sh::liouvillian(
     double el_occ{ml_ef::sh::fermi_dirac(el_energy_x,0,cfg.phys.temp)};
     Eigen::Matrix2d L(2, 2);
 
-    L(0,0) = cfg.phys.gamma * el_occ;
+    L(0,0) = -cfg.phys.gamma * el_occ;
     L(0,1) = cfg.phys.gamma * (1 - el_occ);
-    L(1,0) = -cfg.phys.gamma * el_occ;
+    L(1,0) = cfg.phys.gamma * el_occ;
     L(1,1) = -cfg.phys.gamma * (1 - el_occ);
 
     return L;

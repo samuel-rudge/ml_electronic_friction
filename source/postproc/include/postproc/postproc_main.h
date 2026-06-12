@@ -10,9 +10,19 @@ namespace ml_ef::postproc{
         const ml_ef::config::Config& cfg
     );
 
-    ml_ef::postproc::Observables process_all_traj(
-        const std::filesystem::path& traj_path,
-        const int& n_traj
+    ml_ef::postproc::Obs process_all_traj(
+        const ml_ef::config::Config& cfg,
+        const std::filesystem::path& traj_path
+    );
+
+    ml_ef::postproc::ClObservables process_traj_cl(
+        const ml_ef::config::Config& cfg,
+        const std::filesystem::path& traj_path
+    );
+
+    ml_ef::postproc::QuObservables process_traj_qu(
+        const ml_ef::config::Config& cfg,
+        const std::filesystem::path& traj_path
     );
 
 }

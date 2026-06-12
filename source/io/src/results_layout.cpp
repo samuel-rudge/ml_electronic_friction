@@ -1,4 +1,5 @@
 #include "io/results_layout.h"
+#include "io/io_utils.h"
 #include "config/config.h"
 #include <filesystem>
 #include <sstream>
@@ -8,7 +9,7 @@
 ml_ef::io::ResultsLayout::ResultsLayout(const ml_ef::config::Config& cfg)
 {
     
-    const std::filesystem::path project = cfg.io.project_root;
+    // const std::filesystem::path project = cfg.io.project_root;
     const std::filesystem::path results = cfg.io.results_root;
 
     const auto gamma_temp = 
@@ -18,13 +19,15 @@ ml_ef::io::ResultsLayout::ResultsLayout(const ml_ef::config::Config& cfg)
     const auto elvib_coup = 
         std::format("elvib_coup_{}eV",cfg.phys.elvib_coup);
 
-    m_results_dir = project / results / gamma_temp / omega / elvib_coup;
+    // m_results_dir = project /
+    m_results_dir =  results / gamma_temp / omega / elvib_coup;
     std::filesystem::create_directories(m_results_dir);
     m_results_traj_dir = m_results_dir / "trajectories";
     std::filesystem::create_directories(m_results_traj_dir);
+    // ml_ef::io::clear_directory(m_results_traj_dir);
     m_results_ensemble_av_dir = m_results_dir / "ensemble_av";
     std::filesystem::create_directories(m_results_ensemble_av_dir);
-    m_results_plots_dir = m_results_dir / "ensemble_av";
+    m_results_plots_dir = m_results_dir / "plots";
     std::filesystem::create_directories(m_results_plots_dir);
 
 }

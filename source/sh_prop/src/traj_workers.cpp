@@ -28,19 +28,26 @@ void ml_ef::sh::traj_prop(const ml_ef::config::Config& cfg)
     for (int itr_traj = 0; itr_traj < cfg.sim.n_traj; ++itr_traj) {
         ml_ef::sh::HopDist hop_dist{ml_ef::sh::hop_dist_traj(cfg,itr_traj)};
         Eigen::MatrixXd cl_state_traj(cfg.sim.n_steps , 2);
+        Eigen::MatrixXd qu_state_traj(cfg.sim.n_steps , 2);
         ml_ef::sh::TotalState tot_state{ 
             ml_ef::sh::init_cond_traj(itr_traj,init_conds,cfg) 
         };
         cl_state_traj.row(0) = tot_state.cl_state();
+        qu_state_traj.row(0) = tot_state.qu_state();
         // 
         for (std::size_t itrt{ 1 } ; itrt < cfg.sim.n_steps ; ++itrt)
         {
             ml_ef::sh::state_propagate( cfg, tot_state , hop_dist, cl_forces );
             cl_state_traj.row(itrt) = tot_state.cl_state();
+            qu_state_traj.row(itrt) = tot_state.qu_state();
         }
 
         ml_ef::io::traj_write(
-            time_vec,cl_state_traj,results_layout.results_traj_dir(),itr_traj
+            time_vec,
+            cl_state_traj,
+            qu_state_traj,
+            results_layout.results_traj_dir(),
+            itr_traj
         );
     }
 }
@@ -69,7 +76,7 @@ ml_ef::sh::TotalState ml_ef::sh::init_cond_traj(
     double x = init_conds.init_conds_nuc()(itr_traj,0);
     double p = init_conds.init_conds_nuc()(itr_traj,1);
     Eigen::Vector2d cl_state(x,p);
-    Eigen::Vector2d qu_state(cfg.sim.ic_el_weights[0],cfg.sim.ic_el_weights[0]);
+    Eigen::Vector2d qu_state(cfg.sim.ic_el_weights[0],cfg.sim.ic_el_weights[1]);
 
     ml_ef::sh::TotalState tot_state{ cl_state, qu_state, act_surf };
 

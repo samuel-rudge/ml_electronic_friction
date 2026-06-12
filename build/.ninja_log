@@ -1,0 +1,26 @@
+# ninja log v6
+3388	3801	1781275740416577704	testing/runTests	a8c96c90acf141b8
+3047	3387	1781275739666577678	source/sh_prop/libsh_prop.a	12dac3746569d9a8
+47	1276	1781275363693564822	source/config/CMakeFiles/config.dir/src/qu_ops.cpp.o	3de7bc9f49a489e8
+1286	1474	1781275737906577618	source/utils/libutils.a	8a349587464491f6
+42	1425	1781275736661577576	scripts/CMakeFiles/main.dir/main.cpp.o	43575ad12b2190b9
+23	907	1781269627873368690	source/sh_prop/CMakeFiles/sh_prop.dir/src/cl_forces.cpp.o	5de14837290b379e
+26	2698	1781269627876368690	source/sh_prop/CMakeFiles/sh_prop.dir/src/init_conds.cpp.o	163935a28bb6431
+35	2758	1781269627885368690	testing/CMakeFiles/runTests.dir/test_init_conds.cpp.o	506978329e49117e
+39	1317	1781275736658577576	source/sh_prop/CMakeFiles/sh_prop.dir/src/sh_utils.cpp.o	2a9e1770b19adaed
+9	2670	1781269627858368689	source/config/CMakeFiles/config.dir/src/config.cpp.o	44554704ab46941d
+32	1847	1781275736652577575	source/postproc/CMakeFiles/postproc.dir/src/postproc_utils.cpp.o	28c3dc8529ccd8f8
+3388	3801	1781275740416577704	testing/runTests[1]_tests.cmake	a8c96c90acf141b8
+39	1373	1781272451879465255	source/io/CMakeFiles/io.dir/src/results_layout.cpp.o	413e18fd259e76a4
+37	1374	1781275736657577576	source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_prop.cpp.o	a77778c40cc47144
+545	1010	1781275379537565364	source/config/libconfig.a	ac5a2cbb3d213b69
+36	2312	1781275736655577575	source/io/CMakeFiles/io.dir/src/obs_io.cpp.o	6b0e493d30db45e8
+40	1568	1781275736659577576	source/sh_prop/CMakeFiles/sh_prop.dir/src/traj_workers.cpp.o	83d3a7a9a5cb742d
+3388	3801	1781275740416577704	/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/build/testing/runTests[1]_tests.cmake	a8c96c90acf141b8
+1848	2118	1781275738467577637	source/postproc/libpostproc.a	f4a23f213b089e37
+34	1315	1781275736654577575	source/postproc/CMakeFiles/postproc.dir/src/postproc_main.cpp.o	792e4d8da64a49e2
+30	1279	1781275736649577575	source/utils/CMakeFiles/utils.dir/src/math_utils.cpp.o	fcb2e0611d264a16
+2312	3047	1781275738931577653	source/io/libio.a	d3b913f8db834cbc
+2435	3045	1781273106241487630	scripts/main	b91c86f379bfd4ee
+47	2290	1781271168429421368	source/io/CMakeFiles/io.dir/src/traj_io.cpp.o	8ab2697d82bb1e9e
+43	562	1781272282500459463	source/io/CMakeFiles/io.dir/src/io_utils.cpp.o	556b7a1a4d059287

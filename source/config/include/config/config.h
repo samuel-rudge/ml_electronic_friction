@@ -35,7 +35,7 @@ namespace ml_ef::config{
 
     struct IOConfig {
         std::string project_root;
-        std::string system_identifier;
+        std::string sim_id_root;
         std::string results_root;
         std::string data_root;
         std::string source_root;

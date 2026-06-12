@@ -44,3 +44,17 @@ Eigen::Matrix2d ml_ef::utils::expm2x2(
     }
     
 }
+
+double expect_value(
+    const Eigen::MatrixXd& op,
+    const Eigen::VectorXd& pops
+)
+{
+    double trace{0};
+    for (int i = 0; i < op.rows(); ++i) {
+        trace = trace + op(i,i) * pops(i);    
+    }
+
+    return trace;
+
+}

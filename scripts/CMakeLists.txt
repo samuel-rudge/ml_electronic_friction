@@ -1,7 +1,15 @@
-file(GLOB SCRIPT_FILES "*.cpp")
+add_executable(main
+    main.cpp
+)
 
-foreach(SCRIPT ${SCRIPT_FILES})
-    get_filename_component(TARGET_NAME ${SCRIPT} NAME_WE) # filename without extension
-    add_executable(${TARGET_NAME} ${SCRIPT})
-    target_link_libraries(${TARGET_NAME} utils)
-endforeach()
+find_package(yaml-cpp REQUIRED)
+target_link_libraries(main PRIVATE
+    sh_prop
+    config
+    postproc
+    utils
+    io
+    yaml-cpp::yaml-cpp
+)
+
+target_compile_options(main PRIVATE -O3)

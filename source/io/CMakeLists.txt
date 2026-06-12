@@ -2,6 +2,7 @@ add_library(io
     src/results_layout.cpp
     src/traj_io.cpp
     src/obs_io.cpp
+    src/io_utils.cpp
 )
 
 target_include_directories(io
@@ -13,4 +14,5 @@ target_link_libraries(io
     PUBLIC config
     PUBLIC Eigen3::Eigen
     PUBLIC postproc
+    PUBLIC utils
 )

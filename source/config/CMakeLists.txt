@@ -1,5 +1,6 @@
 add_library(config
     src/config.cpp
+    src/qu_ops.cpp
 )
 
 target_include_directories(config

@@ -32,7 +32,7 @@ ml_ef::config::Config ml_ef::config::load_config(const std::string& path)
     cfg.sim.traj_seed = config["simulation"]["traj_seed"].as<int>();
 
     cfg.io.project_root = config["project_root"].as<std::string>();
-    cfg.io.system_identifier = config["system_identifier"].as<std::string>();
+    cfg.io.sim_id_root = config["sim_id_root"].as<std::string>();
     cfg.io.results_root = config["results_root"].as<std::string>();
     cfg.io.data_root = config["data_root"].as<std::string>();
     cfg.io.source_root = config["source_root"].as<std::string>();

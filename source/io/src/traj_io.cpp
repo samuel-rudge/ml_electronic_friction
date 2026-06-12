@@ -1,34 +1,51 @@
 #include "io/traj_io.h"
+#include "utils/typing.h"
 #include <vector>
 #include <fstream>
 #include <sstream>
 #include <format>
 #include <filesystem>
 #include <Eigen/Dense>
+#include <iostream>
 
 void ml_ef::io::traj_write(
     const std::vector<double>& time_vec,
     const Eigen::MatrixXd& cl_state_traj,
+    const Eigen::MatrixXd& qu_state_traj,
     const std::filesystem::path& traj_dir,
     int traj_ind
 )
 {
-    std::ofstream file(traj_dir / std::format("traj_{}.dat",traj_ind));
+    std::ofstream file_cl(traj_dir / std::format("traj_cl_{}.dat",traj_ind));
+    std::ofstream file_qu(traj_dir / std::format("traj_qu_{}.dat",traj_ind));
 
-    file << "Time" << "\t" << "x" << "\t" << "p" << "\n"; 
+    file_cl << "Time" << "\t" << "x" << "\t" << "p" << "\n"; 
     for (std::size_t i{ 0 }; i < time_vec.size(); ++i)
     {
-        file << time_vec[i] << "\t" << cl_state_traj(i,0) << "\t" << cl_state_traj(i,1) << "\n"; 
+        file_cl << time_vec[i] << "\t" << cl_state_traj(i,0) << "\t" << cl_state_traj(i,1) << "\n"; 
+        file_qu << time_vec[i] << "\t" << qu_state_traj(i,0) << "\t" << qu_state_traj(i,1) << "\n"; 
     }
 }
 
 Eigen::MatrixXd ml_ef::io::traj_read_and_matrixise(
     const std::filesystem::path& traj_dir,
-    const int& traj_ind
+    const int& traj_ind,
+    const ml_ef::utils::DataType& data_type
 )
 {
-    std::filesystem::path traj_filename{
-    std::filesystem::path(traj_dir / std::format("traj_{}.dat",traj_ind))};
+    std::filesystem::path traj_filename;
+    if (data_type == ml_ef::utils::DataType::cl) {
+        traj_filename = 
+            std::filesystem::path(traj_dir / std::format("traj_cl_{}.dat",traj_ind));
+    }
+    else if (data_type == ml_ef::utils::DataType::qu) {
+        traj_filename = 
+            std::filesystem::path(traj_dir / std::format("traj_qu_{}.dat",traj_ind));
+    }
+    else { 
+        throw std::runtime_error("Data type must be cl or qu");
+    }    
+
     ml_ef::io::ReadFileData traj_file_data{ml_ef::io::traj_read(traj_filename)};
 
     Eigen::MatrixXd traj_data{ml_ef::io::matrix_from_file_data(traj_file_data)};
