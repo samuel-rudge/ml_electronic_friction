@@ -2,6 +2,7 @@
 #include "postproc/postproc_main.h"
 #include "config/config.h"
 #include "utils/run_mode.h"
+#include "omp.h"
 #include <iostream>
 #include <string>
 
@@ -42,7 +43,9 @@ int main(int argc, char* argv[])
     RunMode mode{parse_mode(argc,argv)};
     // Load configuration
     ml_ef::config::Config cfg = ml_ef::config::load_config("config/settings.yaml");
-    
+    omp_set_dynamic(0);
+    omp_set_num_threads(cfg.sim.n_threads);
+
     switch(mode) {
         case RunMode::Propagate:
             ml_ef::sh::traj_prop(cfg);

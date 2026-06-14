@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/postproc/src/postproc_main.cpp" "source/postproc/CMakeFiles/postproc.dir/src/postproc_main.cpp.o" "gcc" "source/postproc/CMakeFiles/postproc.dir/src/postproc_main.cpp.o.d"
-  "/home/sr1160/Documents/Postdoc/Projects/Project_ML_Kernels/Code/ml_electronic_friction/source/postproc/src/postproc_utils.cpp" "source/postproc/CMakeFiles/postproc.dir/src/postproc_utils.cpp.o" "gcc" "source/postproc/CMakeFiles/postproc.dir/src/postproc_utils.cpp.o.d"
+  "/home/samuel/Documents/Postdoc/Projects/Project_ML_friction_kernels/Code/ml_electronic_friction/source/postproc/src/postproc_main.cpp" "source/postproc/CMakeFiles/postproc.dir/src/postproc_main.cpp.o" "gcc" "source/postproc/CMakeFiles/postproc.dir/src/postproc_main.cpp.o.d"
+  "/home/samuel/Documents/Postdoc/Projects/Project_ML_friction_kernels/Code/ml_electronic_friction/source/postproc/src/postproc_utils.cpp" "source/postproc/CMakeFiles/postproc.dir/src/postproc_utils.cpp.o" "gcc" "source/postproc/CMakeFiles/postproc.dir/src/postproc_utils.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

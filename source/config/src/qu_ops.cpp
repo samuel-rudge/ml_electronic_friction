@@ -16,23 +16,25 @@ ElForce::ElForce(
 
 Eigen::MatrixXd ElForce::el_force_fluct(
         const double& x,
-        const Eigen::MatrixXd& qu_state
+        const Eigen::MatrixXd& qu_state,
+        const double& mean_ef
 )
 {
-    double mean_ef{mean_el_force(x,qu_state)};
+    
     Eigen::MatrixXd el_force{generate_el_force(x)};
     
-    Eigen::MatrixXd el_force_fluct{el_force.array() - mean_ef};
+    Eigen::MatrixXd el_force_fluct{el_force - 
+        mean_ef * Eigen::MatrixXd::Identity(el_force.rows(),el_force.rows())};
 
     return el_force_fluct;
 }
 
-double ElForce::mean_el_force(
-    const double& x,
+Eigen::VectorXd ElForce::mean_el_force(
+    const Eigen::MatrixXd& x,
     const Eigen::MatrixXd& qu_state
 )
 {
-    double mean_el_force{-m_elvib_coup * qu_state(0)};
+    Eigen::VectorXd mean_el_force{-m_elvib_coup * qu_state.col(1)};
 
     return mean_el_force;
 }
@@ -51,5 +53,5 @@ void ElForce::generate_n_op(
 )
 {
     m_n_op = Eigen::MatrixXd::Zero(2,2);
-    m_n_op(0,1) = 1;
+    m_n_op(1,1) = 1;
 }

@@ -78,18 +78,30 @@ QuObservables::QuObservables(
     const ml_ef::config::Config& cfg
 ) : 
     m_time_vec{init_qu_traj_data.col(0)},
-    m_tot_pops{init_qu_traj_data.block(0,1,init_qu_traj_data.rows(),init_qu_traj_data.cols()-1)},
-    m_ef_obj(cfg)    
+    m_ef_obj(cfg)
 {   
-    const Eigen::MatrixXd& pops = init_qu_traj_data.block(0,1,init_qu_traj_data.rows(),init_qu_traj_data.cols()-1);
+    Eigen::MatrixXd pops = init_qu_traj_data.block(0,1,init_qu_traj_data.rows(),init_qu_traj_data.cols()-1);
+    m_tot_pops = pops;    
+    std::vector<Eigen::MatrixXd> el_force_fluct;
+    el_force_fluct.reserve(m_time_vec.rows());
     Eigen::VectorXd cum1{Eigen::VectorXd::Zero(m_time_vec.rows())};
+    double mean_ef{m_ef_obj.mean_el_force(
+        init_cl_traj_data.col(0),pops
+    ).mean()};
     for (int itrt = 0; itrt < m_time_vec.rows(); ++itrt) {
         const double& x = init_cl_traj_data(itrt,0);
-        m_el_force_fluct_op = m_ef_obj.el_force_fluct(x,pops.row(itrt));
-        cum1(itrt) = ml_ef::utils::expect_value(m_el_force_fluct_op,pops.row(itrt));
+        el_force_fluct.push_back(
+            m_ef_obj.el_force_fluct(x,pops.row(itrt),mean_ef)
+        );
+        cum1(itrt) = ml_ef::utils::cum1(el_force_fluct[itrt],pops.row(itrt));
     }
 
+    Eigen::VectorXd cum2{ml_ef::utils::el_operator_convolve(
+        el_force_fluct,pops
+    )};
+    
     m_tot_el_force_fluct_cum1 = cum1;
+    m_tot_el_force_fluct_cum2 = cum2;
     
 }
 
@@ -98,17 +110,29 @@ void QuObservables::update_traj_obs(
     const Eigen::MatrixXd& cl_traj_data
 )
 {   
-    const Eigen::MatrixXd& pops = qu_traj_data.block(0,1,qu_traj_data.rows(),qu_traj_data.cols()-1);
+    Eigen::MatrixXd pops = qu_traj_data.block(0,1,qu_traj_data.rows(),qu_traj_data.cols()-1);
 
     m_tot_pops = m_tot_pops + pops;
+    std::vector<Eigen::MatrixXd> el_force_fluct;
+    el_force_fluct.reserve(m_time_vec.rows());
     Eigen::VectorXd cum1{Eigen::VectorXd::Zero(m_time_vec.rows())};
+    double mean_ef{m_ef_obj.mean_el_force(
+        cl_traj_data.col(0),pops
+    ).mean()};
     for (int itrt = 0; itrt < m_time_vec.rows(); ++itrt) {
         const double& x = cl_traj_data(itrt,0);
-        m_el_force_fluct_op = m_ef_obj.el_force_fluct(x,pops.row(itrt));
-        cum1(itrt) = m_el_force_fluct_op.trace();
+        el_force_fluct.push_back(
+            m_ef_obj.el_force_fluct(x,pops.row(itrt),mean_ef)
+        );
+        cum1(itrt) = ml_ef::utils::cum1(el_force_fluct[itrt],pops.row(itrt));
     }
+
+    Eigen::VectorXd cum2{ml_ef::utils::el_operator_convolve(
+        el_force_fluct,pops
+    )};
     
     m_tot_el_force_fluct_cum1 = m_tot_el_force_fluct_cum1 + cum1;
+    m_tot_el_force_fluct_cum2 = m_tot_el_force_fluct_cum2 + cum2;
 }
 
 void QuObservables::mean_traj_obs(
@@ -117,6 +141,7 @@ void QuObservables::mean_traj_obs(
 {
     m_mean_pops = m_tot_pops / n_traj;
     m_mean_el_force_fluct_cum1 = m_tot_el_force_fluct_cum1 / n_traj;
+    m_mean_el_force_fluct_cum2 = m_tot_el_force_fluct_cum2 / n_traj;
 
 }
 
@@ -128,6 +153,11 @@ const Eigen::MatrixXd& QuObservables::mean_pops() const
 const Eigen::MatrixXd& QuObservables::mean_el_force_fluct_cum1() const
 {
     return m_mean_el_force_fluct_cum1;
+}
+
+const Eigen::MatrixXd& QuObservables::mean_el_force_fluct_cum2() const
+{
+    return m_mean_el_force_fluct_cum2;
 }
 
 const Eigen::VectorXd& QuObservables::time_vec() const

@@ -1,6 +1,7 @@
 #include "utils/math_utils.h"
 #include <vector>
 #include <Eigen/Dense>
+#include <omp.h>
 
 std::vector<double> ml_ef::utils::linspace(
     double min,
@@ -45,7 +46,7 @@ Eigen::Matrix2d ml_ef::utils::expm2x2(
     
 }
 
-double expect_value(
+double ml_ef::utils::expect_value(
     const Eigen::MatrixXd& op,
     const Eigen::VectorXd& pops
 )
@@ -56,5 +57,54 @@ double expect_value(
     }
 
     return trace;
+
+}
+
+double ml_ef::utils::cum1(
+    const Eigen::MatrixXd& op,
+    const Eigen::VectorXd& pops
+)
+{
+
+    return ml_ef::utils::expect_value(op,pops);
+
+}
+
+double ml_ef::utils::cum2(
+    const Eigen::MatrixXd& op1,
+    const Eigen::MatrixXd& op2,
+    const Eigen::VectorXd& pops
+)
+{
+
+    Eigen::MatrixXd op{op1 * op2};
+
+    return ml_ef::utils::expect_value(op,pops);
+
+}
+
+Eigen::VectorXd ml_ef::utils::el_operator_convolve(
+    const std::vector<Eigen::MatrixXd>& time_series,
+    const Eigen::MatrixXd& pops
+)
+{
+    int N = time_series.size();
+    Eigen::VectorXd conv{Eigen::VectorXd::Zero(N)};
+
+    #pragma omp parallel
+    for (int k = 0; k < N; k++) {
+        
+        double tmp{0.0}; 
+
+        for (int i = 0; i < N - k; i++) {
+            tmp = tmp + ml_ef::utils::cum2(
+                time_series[i],time_series[i+k],pops.row(i)
+            );
+        }
+
+        conv[k] = tmp / (N - k);
+    }
+
+    return conv;
 
 }

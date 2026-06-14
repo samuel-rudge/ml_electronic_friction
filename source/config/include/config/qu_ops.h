@@ -11,13 +11,14 @@ namespace ml_ef::config{
                 const ml_ef::config::Config& cfg
             );
         
-            double mean_el_force(
-                const double& x,
+            Eigen::VectorXd mean_el_force(
+                const Eigen::MatrixXd& x,
                 const Eigen::MatrixXd& qu_state
             );
             Eigen::MatrixXd el_force_fluct(
                 const double& x,
-                const Eigen::MatrixXd& qu_state
+                const Eigen::MatrixXd& qu_state,
+                const double& mean_ef
             );
 
         private:

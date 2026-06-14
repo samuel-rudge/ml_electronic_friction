@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/io.dir/src/io_utils.cpp.o"
+  "CMakeFiles/io.dir/src/io_utils.cpp.o.d"
   "CMakeFiles/io.dir/src/obs_io.cpp.o"
   "CMakeFiles/io.dir/src/obs_io.cpp.o.d"
   "CMakeFiles/io.dir/src/results_layout.cpp.o"

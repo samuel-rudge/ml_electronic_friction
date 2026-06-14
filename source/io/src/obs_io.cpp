@@ -52,14 +52,15 @@ void ml_ef::io::qu_obs_write(
     const auto& t = qu_obs.time_vec();
     const Eigen::MatrixXd& pops = qu_obs.mean_pops();
     const Eigen::VectorXd& mean_el_force_fluct_cum1 = qu_obs.mean_el_force_fluct_cum1();
+    const Eigen::VectorXd& mean_el_force_fluct_cum2 = qu_obs.mean_el_force_fluct_cum2();
     // const auto& p = qu_obs.mean_p();
     // const auto& pot = qu_obs.mean_pot();
     // const auto& kin = qu_obs.mean_kin();
 
-    file << "Time" << "\t" << "Pop_0" << "\t" << "Pop_1" << "\t" << "<dF_el(t)>" << "\n"; 
+    file << "Time" << "\t" << "Pop_0" << "\t" << "Pop_1" << "\t" << "<dF_el(t)>" << "\t" "<dF_el(t)dF_el(0)>" << "\n"; 
     for (int i{ 0 }; i < t.size(); ++i) {
         file << t(i) << "\t" << pops.row(i).col(0) << "\t" << pops.row(i).col(1) << "\t" << 
-        mean_el_force_fluct_cum1(i) << "\n"; 
+        mean_el_force_fluct_cum1(i) << "\t" << mean_el_force_fluct_cum2(i) << "\n"; 
     }
 
 }
