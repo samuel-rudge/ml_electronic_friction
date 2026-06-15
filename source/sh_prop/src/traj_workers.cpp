@@ -16,6 +16,7 @@
 void ml_ef::sh::traj_prop(const ml_ef::config::Config& cfg)
 {
     ml_ef::io::ResultsLayout results_layout = ml_ef::io::ResultsLayout(cfg);
+    results_layout.clear_traj();
     ml_ef::sh::ClassicalEoM cl_forces = ml_ef::sh::ClassicalEoM(cfg);
     ml_ef::sh::InitConds init_conds = ml_ef::sh::InitConds(cfg);
 

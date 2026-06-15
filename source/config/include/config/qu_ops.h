@@ -11,14 +11,19 @@ namespace ml_ef::config{
                 const ml_ef::config::Config& cfg
             );
         
-            Eigen::VectorXd mean_el_force(
+            // Eigen::VectorXd mean_el_force(
+            //     const Eigen::MatrixXd& x,
+            //     const Eigen::MatrixXd& qu_state
+            // );
+            // Eigen::MatrixXd el_force_fluct(
+            //     const double& x,
+            //     const Eigen::MatrixXd& qu_state,
+            //     const double& mean_ef
+            // );
+            Eigen::VectorXd el_force_fluct(
                 const Eigen::MatrixXd& x,
-                const Eigen::MatrixXd& qu_state
-            );
-            Eigen::MatrixXd el_force_fluct(
-                const double& x,
                 const Eigen::MatrixXd& qu_state,
-                const double& mean_ef
+                const int& ss_ind
             );
 
         private:
@@ -27,7 +32,7 @@ namespace ml_ef::config{
             
         private:
             void generate_n_op(const ml_ef::config::Config& cfg);
-            Eigen::MatrixXd generate_el_force(const double& x);
+            Eigen::MatrixXd generate_el_force(const Eigen::VectorXd& x);
     };
 
 }

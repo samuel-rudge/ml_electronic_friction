@@ -41,8 +41,15 @@ namespace ml_ef::config{
         std::string source_root;
     };
 
+    struct PostprocConfig {
+        int ss_ind;
+        int n_cum;
+        int corr_ind;
+    };
+
     struct Config {
         SimulationConfig sim;
+        PostprocConfig postproc;
         PhysicsConfig phys;
         IOConfig io;
     };

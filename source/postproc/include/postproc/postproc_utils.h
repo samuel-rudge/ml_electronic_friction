@@ -62,19 +62,19 @@ namespace ml_ef::postproc {
             );
 
             const Eigen::MatrixXd& mean_pops() const;
-            const Eigen::MatrixXd& mean_el_force_fluct_cum1() const;
-            const Eigen::MatrixXd& mean_el_force_fluct_cum2() const;
+            const Eigen::MatrixXd& mean_el_force_fluct_cum() const;
             const Eigen::VectorXd& time_vec() const;
 
         private:
             ml_ef::config::ElForce m_ef_obj;
+            int m_ss_ind;
+            int m_n_cum;
+            int m_corr_ind;
             Eigen::VectorXd m_time_vec;
             Eigen::MatrixXd m_tot_pops;
             Eigen::MatrixXd m_mean_pops;
-            Eigen::MatrixXd m_tot_el_force_fluct_cum1;
-            Eigen::MatrixXd m_mean_el_force_fluct_cum1;
-            Eigen::MatrixXd m_tot_el_force_fluct_cum2;
-            Eigen::MatrixXd m_mean_el_force_fluct_cum2;
+            Eigen::MatrixXd m_tot_el_force_fluct_cum;
+            Eigen::MatrixXd m_mean_el_force_fluct_cum;
 
         private:
             Eigen::MatrixXd mean_ef(

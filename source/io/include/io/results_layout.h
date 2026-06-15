@@ -15,6 +15,8 @@ namespace ml_ef::io{
             const std::filesystem::path& results_traj_dir() const;
             const std::filesystem::path& results_ensemble_av_dir() const;
             const std::filesystem::path& results_plots_dir() const;
+            void clear_traj() const;
+            void clear_ensemble_av() const;
             void m_create_results_dir();
 
         private:

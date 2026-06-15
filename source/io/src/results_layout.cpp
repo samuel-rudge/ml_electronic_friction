@@ -32,6 +32,16 @@ ml_ef::io::ResultsLayout::ResultsLayout(const ml_ef::config::Config& cfg)
 
 }
 
+void ml_ef::io::ResultsLayout::clear_traj() const
+{
+    ml_ef::io::clear_directory(m_results_traj_dir);
+}
+
+void ml_ef::io::ResultsLayout::clear_ensemble_av() const
+{
+    ml_ef::io::clear_directory(m_results_ensemble_av_dir);
+}
+
 const std::filesystem::path& ml_ef::io::ResultsLayout::results_dir() const
 {
     return m_results_dir;

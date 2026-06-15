@@ -3,6 +3,7 @@
 #include "utils/typing.h"
 #include <string>
 #include <iostream>
+#include <cmath>
 
 ml_ef::config::Config ml_ef::config::load_config(const std::string& path)
 {
@@ -30,6 +31,14 @@ ml_ef::config::Config ml_ef::config::load_config(const std::string& path)
     cfg.sim.ic_rng = config["simulation"]["ic_rng"].as<int>();
     cfg.sim.n_threads = config["simulation"]["n_threads"].as<int>();
     cfg.sim.traj_seed = config["simulation"]["traj_seed"].as<int>();
+
+    cfg.postproc.ss_ind = static_cast<int>(std::floor(
+        config["postproc"]["ss_time"].as<double>() / cfg.sim.dt
+    ));
+    cfg.postproc.n_cum = config["postproc"]["n_cum"].as<int>();
+    cfg.postproc.corr_ind = static_cast<int>(std::floor(
+        config["postproc"]["corr_time"].as<double>()
+    ));
 
     cfg.io.project_root = config["project_root"].as<std::string>();
     cfg.io.sim_id_root = config["sim_id_root"].as<std::string>();

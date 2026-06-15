@@ -47,20 +47,36 @@ void ml_ef::io::qu_obs_write(
     const std::filesystem::path& obs_dir
 )
 {
-    std::ofstream file(obs_dir / std::format("mean_obs_qu.dat"));
+    std::ofstream file_pops(obs_dir / std::format("mean_obs_qu_pops.dat"));
+    std::ofstream file_cum(obs_dir / std::format("mean_obs_qu_cum.dat"));
+    std::vector<std::string> fluct_headers = {
+        "<dF_el(t)>",
+        "<dF_el(0) dF_el(t)>",
+        "<[dF_el(0)]^2 dF_el(t)>",
+        "<[dF_el(0)]^3 dF_el(t)>"
+    };
     
     const auto& t = qu_obs.time_vec();
     const Eigen::MatrixXd& pops = qu_obs.mean_pops();
-    const Eigen::VectorXd& mean_el_force_fluct_cum1 = qu_obs.mean_el_force_fluct_cum1();
-    const Eigen::VectorXd& mean_el_force_fluct_cum2 = qu_obs.mean_el_force_fluct_cum2();
-    // const auto& p = qu_obs.mean_p();
-    // const auto& pot = qu_obs.mean_pot();
-    // const auto& kin = qu_obs.mean_kin();
+    const Eigen::MatrixXd& mean_el_force_fluct_cum = qu_obs.mean_el_force_fluct_cum();
+    const Eigen::Index& n_sstime{mean_el_force_fluct_cum.rows()};
+    const Eigen::Index& n_cum{mean_el_force_fluct_cum.cols()};
 
-    file << "Time" << "\t" << "Pop_0" << "\t" << "Pop_1" << "\t" << "<dF_el(t)>" << "\t" "<dF_el(t)dF_el(0)>" << "\n"; 
+    file_pops << "Time" << "\t" << "Pop_0" << "\t" << "Pop_1" << "\n";
+    file_cum << "Time";
+    for (int k = 0; k < n_cum; ++k) {
+        file_cum << fluct_headers[k] << "\t";
+    }
+    file_cum << "\n";
     for (int i{ 0 }; i < t.size(); ++i) {
-        file << t(i) << "\t" << pops.row(i).col(0) << "\t" << pops.row(i).col(1) << "\t" << 
-        mean_el_force_fluct_cum1(i) << "\t" << mean_el_force_fluct_cum2(i) << "\n"; 
+        file_pops << t(i) << "\t" << pops.row(i).col(0) << "\t" << pops.row(i).col(1) << "\n";
+        if (i < n_sstime) {
+            file_cum << t(i) << "\t";
+            for (int k = 0; k < n_cum; ++k) {
+                file_cum << mean_el_force_fluct_cum(i,k) << "\t";
+            }
+            file_cum << "\n";
+        }
     }
 
 }

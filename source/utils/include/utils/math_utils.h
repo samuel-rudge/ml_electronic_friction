@@ -22,25 +22,33 @@ namespace ml_ef::utils{
         const Eigen::VectorXd& pops
     );
 
-    double expect_value(
-        const Eigen::MatrixXd& op,
-        const Eigen::VectorXd& pops
+    // double cum1(
+    //     const Eigen::MatrixXd& op,
+    //     const Eigen::VectorXd& pops
+    // );
+
+    // double cum2(
+    //     const Eigen::MatrixXd& op1,
+    //     const Eigen::MatrixXd& op2,
+    //     const Eigen::VectorXd& pops
+    // );
+    Eigen::VectorXd cum2(
+       const Eigen::VectorXd& time_series
     );
 
-    double cum1(
-        const Eigen::MatrixXd& op,
-        const Eigen::VectorXd& pops
+    Eigen::VectorXd nth_moment(
+       const Eigen::VectorXd& time_series,
+       const int& ind_mom,
+        const int& corr_ind
     );
 
-    double cum2(
-        const Eigen::MatrixXd& op1,
-        const Eigen::MatrixXd& op2,
-        const Eigen::VectorXd& pops
+    double binom(
+        int n, int k
     );
 
-    Eigen::VectorXd el_operator_convolve(
-        const std::vector<Eigen::MatrixXd>& time_series,
-        const Eigen::MatrixXd& pops
-    );
+    // Eigen::VectorXd el_operator_convolve(
+    //     const std::vector<Eigen::MatrixXd>& time_series,
+    //     const Eigen::MatrixXd& pops
+    // );
 
 }

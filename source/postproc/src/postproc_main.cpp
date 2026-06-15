@@ -14,6 +14,7 @@ void ml_ef::postproc::postproc(
 )
 {
     ml_ef::io::ResultsLayout results_layout{ml_ef::io::ResultsLayout(cfg)};
+    results_layout.clear_ensemble_av();
     ml_ef::postproc::Obs obs{ml_ef::postproc::process_all_traj(
         cfg,
         results_layout.results_traj_dir()

@@ -60,34 +60,34 @@ double ml_ef::utils::expect_value(
 
 }
 
-double ml_ef::utils::cum1(
-    const Eigen::MatrixXd& op,
-    const Eigen::VectorXd& pops
+// double ml_ef::utils::cum1(
+//     const Eigen::MatrixXd& op,
+//     const Eigen::VectorXd& pops
+// )
+// {
+
+//     return ml_ef::utils::expect_value(op,pops);
+
+// }
+
+// double ml_ef::utils::cum2(
+//     const Eigen::MatrixXd& op1,
+//     const Eigen::MatrixXd& op2,
+//     const Eigen::VectorXd& pops
+// )
+// {
+
+//     Eigen::MatrixXd op{op1 * op2};
+
+//     return ml_ef::utils::expect_value(op,pops);
+
+// }
+
+Eigen::VectorXd ml_ef::utils::cum2(
+    const Eigen::VectorXd& time_series
 )
 {
 
-    return ml_ef::utils::expect_value(op,pops);
-
-}
-
-double ml_ef::utils::cum2(
-    const Eigen::MatrixXd& op1,
-    const Eigen::MatrixXd& op2,
-    const Eigen::VectorXd& pops
-)
-{
-
-    Eigen::MatrixXd op{op1 * op2};
-
-    return ml_ef::utils::expect_value(op,pops);
-
-}
-
-Eigen::VectorXd ml_ef::utils::el_operator_convolve(
-    const std::vector<Eigen::MatrixXd>& time_series,
-    const Eigen::MatrixXd& pops
-)
-{
     int N = time_series.size();
     Eigen::VectorXd conv{Eigen::VectorXd::Zero(N)};
 
@@ -97,9 +97,7 @@ Eigen::VectorXd ml_ef::utils::el_operator_convolve(
         double tmp{0.0}; 
 
         for (int i = 0; i < N - k; i++) {
-            tmp = tmp + ml_ef::utils::cum2(
-                time_series[i],time_series[i+k],pops.row(i)
-            );
+            tmp = tmp + time_series[i] * time_series[i+k];
         }
 
         conv[k] = tmp / (N - k);
@@ -108,3 +106,73 @@ Eigen::VectorXd ml_ef::utils::el_operator_convolve(
     return conv;
 
 }
+
+Eigen::VectorXd ml_ef::utils::nth_moment(
+    const Eigen::VectorXd& time_series,
+    const int& ind_mom,
+    const int& corr_ind
+)
+{
+    // int N = time_series.size();
+    int N = corr_ind;
+    Eigen::VectorXd conv{Eigen::VectorXd::Zero(N)};
+    Eigen::VectorXd ts_nth_power{time_series.array().pow(ind_mom-1).matrix()};
+
+    if (ind_mom == 1) {
+        conv = time_series.head(N);
+    }
+    else {
+        #pragma omp parallel for
+        for (int k = 0; k < N; k++) {
+            
+            double tmp{0.0}; 
+
+            for (int i = 0; i < N - k; i++) {
+                tmp = tmp + ts_nth_power[i] * time_series[i+k];
+            }
+
+            conv[k] = tmp / (N - k);
+        }
+    }
+    
+    return conv;
+
+}
+
+double ml_ef::utils::binom(int n, int k)
+{
+    if (k < 0 || k > n) return 0.0;
+    k = std::min(k, n - k);
+
+    double res = 1.0;
+    for (int i = 1; i <= k; ++i) {
+        res *= (n - k + i) / (double)i;
+    }
+    return res;
+}
+
+// Eigen::VectorXd ml_ef::utils::el_operator_convolve(
+//     const std::vector<Eigen::MatrixXd>& time_series,
+//     const Eigen::MatrixXd& pops
+// )
+// {
+//     int N = time_series.size();
+//     Eigen::VectorXd conv{Eigen::VectorXd::Zero(N)};
+
+//     #pragma omp parallel
+//     for (int k = 0; k < N; k++) {
+        
+//         double tmp{0.0}; 
+
+//         for (int i = 0; i < N - k; i++) {
+//             tmp = tmp + ml_ef::utils::cum2(
+//                 time_series[i],time_series[i+k],pops.row(i)
+//             );
+//         }
+
+//         conv[k] = tmp / (N - k);
+//     }
+
+//     return conv;
+
+// }
