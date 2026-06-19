@@ -6,6 +6,8 @@
 data/
 build/
 *.o
+*.nfs
+results/
 
 # Generated simulation or analysis output
 source_old*
