@@ -1,2 +1,0 @@
-/usr/bin/ar qc libpostproc.a CMakeFiles/postproc.dir/src/postproc_utils.cpp.o CMakeFiles/postproc.dir/src/postproc_main.cpp.o
-/usr/bin/ranlib libpostproc.a

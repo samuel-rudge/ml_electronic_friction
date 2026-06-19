@@ -1,2 +1,0 @@
-/usr/bin/ar qc libio.a CMakeFiles/io.dir/src/results_layout.cpp.o CMakeFiles/io.dir/src/traj_io.cpp.o CMakeFiles/io.dir/src/obs_io.cpp.o CMakeFiles/io.dir/src/io_utils.cpp.o
-/usr/bin/ranlib libio.a
